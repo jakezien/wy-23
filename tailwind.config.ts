@@ -3,16 +3,23 @@ import type { Config } from 'tailwindcss'
 const config: Config = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    fontFamily: {
+      franklin: ["Franklin Gothic Compressed", "sans-serif"],
+      display: ["Garamond Pro Display", "serif"],
+    },
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
+      colors: {
+        hotPink: "#F22E60",
+        crimson: "#D83027",
+        brown: "#533B3A",
+        darkBrown: "#241C1C",
+        clay: "#C0817A",
+        cloud: "rgba(250,250,255,0.985)",
+        white: "rgb(250,250,255)"
+      }
     },
   },
   plugins: [],

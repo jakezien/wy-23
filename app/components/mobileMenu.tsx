@@ -3,7 +3,8 @@ import Nav from "./nav"
 const Header = () => {
   return (      
     <header id="site-header">
-      <Nav ulClassName="flex flex-row"/>
+      <div id="site-logo"></div>
+      <Nav />
     </header>
   )  
 }
