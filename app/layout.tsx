@@ -1,6 +1,9 @@
 import './globals.css'
 import Header from "./components/header"
 import Footer from "./components/footer"
+import { EB_Garamond } from 'next/font/google'
+
+const garamond = EB_Garamond({subsets: ['latin']})
 
 export const metadata = {
   title: 'Next.js',
@@ -14,10 +17,10 @@ export default function RootLayout({
 }) {
   return (
 
-    <html lang="en">
-      <body className={""}>        
-        <Header/>
-        <main>
+    <html lang="en" className='h-full'>
+      <body className={'h-full ' + garamond.className}>        
+        {/* <Header/> */}
+        <main className='h-full'>
           {children}
         </main>
         <Footer/>
