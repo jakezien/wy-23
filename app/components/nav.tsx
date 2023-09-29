@@ -4,16 +4,20 @@ import Logotype from "./logotype"
 type NavProps = {
   ulClassName?: string
   liClassName?: string
+  firstItemClassName?: string
+  lastItemClassName?: string
 }
 
 const Nav: React.FC<NavProps> = ({
   ulClassName = "",
-  liClassName = "list-none"
+  liClassName = "list-none",
+  firstItemClassName = "",
+  lastItemClassName = ""
 }) => { 
   return (
     <nav>
       <ul className={ulClassName + " list-none"}>
-        <li className={liClassName}>
+        <li className={liClassName + " " + firstItemClassName}>
           <Link href="/">
             <Logotype small={true} className="fill-black w-11 h-8" />
           </Link>
@@ -22,22 +26,22 @@ const Nav: React.FC<NavProps> = ({
           <Link href="/expeditions">Expeditions</Link>
         </li>
         <li className={liClassName}>
-          <Link href="/qeros">Q’eros</Link>
+          <Link href="/">Q’eros</Link>
         </li>
         <li className={liClassName}>
-          <Link href="/projects">Projects</Link>
+          <Link href="/">Projects</Link>
         </li>
         <li className={liClassName}>
-          <Link href="/schools">Schools</Link>
+          <Link href="/">Schools</Link>
         </li>
         <li className={liClassName}>
-          <Link href="/journal">Journal</Link>
+          <Link href="/">Journal</Link>
         </li>
         <li className={liClassName}>
-          <Link href="/about">About</Link>
+          <Link href="/">About</Link>
         </li>
-        <li className={liClassName}>
-          <Link href="/donate" className="block px-3 py-1">Donate</Link>
+        <li className={liClassName + " " + lastItemClassName}>
+          <Link href="/" className="block px-3 py-1">Donate</Link>
         </li>
       </ul>
     </nav>

@@ -1,7 +1,8 @@
 'use client'
 import Nav from "./nav"
 import { useState } from "react"
-
+import localFont from "next/font/local"
+const franklin = localFont({src: '../fonts/FranklinBold.woff2'}) 
 
 const Header = () => {
 
@@ -16,10 +17,17 @@ const Header = () => {
       <div className="md:hidden">
         <button onClick={toggleMobileMenu}>Menu</button>
         <div className={showMobileMenu ? 'block' : 'hidden'}>
-          <Nav ulClassName="flex flex-col"/>
+          <Nav
+            ulClassName="flex flex-col"
+          />
         </div>
       </div>
-      <Nav ulClassName="flex-row hidden md:flex"/>
+      <Nav
+        ulClassName={"flex-row hidden md:flex justify-between items-center uppercase tracking-[0.1em] " + franklin.className}
+        liClassName="mx-8 px-2 hover:text-hotPink transition-colors text-lg text-brown"
+        firstItemClassName="ml-1 mr-auto"
+        lastItemClassName="ml-auto mr-1 hover:bg-hotPink hover:text-white rounded "
+      />
     </header>
   )  
 }

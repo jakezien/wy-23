@@ -2,14 +2,13 @@ import './globals.css'
 import Header from "./components/header"
 import Footer from "./components/footer"
 import { EB_Garamond } from 'next/font/google'
-import { ParallaxProvider } from 'react-scroll-parallax'
 
 const garamond = EB_Garamond({subsets: ['latin']})
 
-// export const metadata = {
-//   title: 'Willka Yachay',
-//   description: 'Willka Yachay',
-// }
+export const metadata = {
+  title: 'Willka Yachay',
+  description: 'Willka Yachay',
+}
 
 export default function RootLayout({
   children,
@@ -19,12 +18,12 @@ export default function RootLayout({
   return (
     
     <html lang="en" className=''>
-      <body className={' ' + garamond.className}>        
-        <Header/>
-        <main className=''>
-          {children}
+      <body className={garamond.className}>        
+        <main>
+          <Header />
+            {children}
+          <Footer/>
         </main>
-        <Footer/>
       </body>
     </html>
   )
