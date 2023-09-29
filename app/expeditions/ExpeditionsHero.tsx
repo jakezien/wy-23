@@ -1,7 +1,11 @@
+'use client'
+// import { ParallaxProvider } from "react-scroll-parallax";
 import { ParallaxBanner } from "react-scroll-parallax";
 import Image from "next/image";
 import MountainsSVG from './mountains.svg';
 import TentsSVG from './tents.svg';
+import dynamic from 'next/dynamic';
+
 // import ReactDOMServer from 'react-dom/server';
 
 // export function encodeSvg(reactElement: any) {
@@ -13,6 +17,8 @@ import TentsSVG from './tents.svg';
 
 const ExpeditionsHero = () => {
   return (
+
+
     <ParallaxBanner
       className="relative h-full"
       layers={[
@@ -86,7 +92,7 @@ const ExpeditionsHero = () => {
             )
         }
     ]}
-  />
+      />
   )
 }
 

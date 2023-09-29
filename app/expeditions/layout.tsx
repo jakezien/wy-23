@@ -1,3 +1,5 @@
+import { ParallaxProvider } from 'react-scroll-parallax'
+
 export const metadata = {
   title: 'Willka Yachay',
   description: 'Willka Yachay',
