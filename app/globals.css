@@ -39,4 +39,10 @@
     position: absolute;
     bottom: -4vh
   }
+
+  .text-title {
+    @apply text-[4rem];
+    @apply md:text-[6rem]
+  }
+
 }
