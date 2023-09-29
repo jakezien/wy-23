@@ -21,4 +21,22 @@
     @apply bg-cloud;
     @apply text-earth
   }
+ 
+  .expeditions-mountain-mask {
+    mask-image: url('../public/images/expeditions/mountains.svg');
+    mask-position: center 600%;
+    mask-repeat: no-repeat;
+    mask-size: 100% auto;
+    position: absolute;
+    bottom: 8vh
+  }
+
+  .expeditions-tent-mask {
+    mask-image: url('../public/images/expeditions/tents.svg');
+    mask-position: center 74%;
+    mask-repeat: no-repeat;
+    mask-size: 100% auto;
+    position: absolute;
+    bottom: -4vh
+  }
 }

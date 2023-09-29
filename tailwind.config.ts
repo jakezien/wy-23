@@ -11,6 +11,9 @@ const config: Config = {
       display: ["Garamond Pro Display", "serif"],
     },
     extend: {
+      fontSize: {
+        title: '6rem'
+      },
       colors: {
         hotPink: "#F22E60",
         crimson: "#D83027",
