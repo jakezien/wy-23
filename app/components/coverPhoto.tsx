@@ -43,7 +43,7 @@ const CoverPhoto: React.FC<CoverPhotoProps> = ({ parallax = {
           
         {props.scrim && <div className="w-full h-full absolute bg-white z-[1]" />}
       </figure>
-      <div className={`w-full m-auto relative z-10 text-white top-12 text-lg`}>
+      <div className={`w-full m-auto relative z-10 text-white top-12`}>
         {props.children ? props.children : <p>{props.caption}</p>}
       </div>
     </div>

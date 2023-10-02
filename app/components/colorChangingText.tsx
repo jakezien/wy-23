@@ -47,7 +47,8 @@ const ColorChangingText: React.FC<PropsWithChildren<Props>> = ({colors, classNam
   const { ref } = useParallax({
     // onChange: (e) => console.log('change', e),
     onProgressChange: onProgressChange,
-    speed:0,
+    easing: "easeOutCubic",
+    speed:20,
   });
 
 

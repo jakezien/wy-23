@@ -41,8 +41,8 @@
   }
 
   .text-title {
-    @apply text-[4rem];
-    @apply md:text-[6rem]
+    @apply text-[6rem];
+    @apply md:text-[9rem]
   }
 
 }

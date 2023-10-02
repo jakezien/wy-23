@@ -2,6 +2,7 @@ import Link from "next/link"
 import Logotype from "./logotype"
 
 type NavProps = {
+  className?: string,
   ulClassName?: string
   liClassName?: string
   firstItemClassName?: string
@@ -9,13 +10,14 @@ type NavProps = {
 }
 
 const Nav: React.FC<NavProps> = ({
+  className = "",
   ulClassName = "",
   liClassName = "list-none",
   firstItemClassName = "",
   lastItemClassName = ""
 }) => { 
   return (
-    <nav>
+    <nav className={className}>
       <ul className={ulClassName + " list-none"}>
         <li className={liClassName + " " + firstItemClassName}>
           <Link href="/">
@@ -33,14 +35,18 @@ const Nav: React.FC<NavProps> = ({
         <li className={liClassName}>
           <Link href="/">Projects</Link>
         </li>
+        */}
+
         <li className={liClassName}>
-          <Link href="/">Schools</Link>
+          <Link href="/schools">Schools</Link>
         </li>
+
+        {/*
         <li className={liClassName}>
           <Link href="/">Journal</Link>
         </li>
         <li className={liClassName}>
-          <Link href="/">About</Link>
+          <Link href="/about">About</Link>
         </li>
         */}
 

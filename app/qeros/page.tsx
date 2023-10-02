@@ -11,15 +11,24 @@ import whereImage from './where@2x.jpg'
 import valleyImage from './valley@2x.jpg'
 import alpacasImage from './alpacas@2x.jpg'
 import silhouetteImage from './silhouette@2x.jpg'
-
+import PageTitle from '../components/pageTitle'
+import { Franklin } from '../components/localFonts'
 
 export default function Qeros() {
   
   return (
     <>
-        <CoverPhoto imgSrc={coverImage} >
-          <h1>Q’eros</h1>
-          <p>&quot;KEH-ros&quot;</p> 
+      <CoverPhoto
+        imgSrc={coverImage}
+        fixed
+        parallax={{
+          startScroll: 0,
+          endScroll: 800,
+          opacity: [1,0],
+        }}
+      >
+          <PageTitle title='Q’eros'></PageTitle>
+          <p className={"text-center text-5xl tracking-[0.2em] " + Franklin.className}>&quot;KEH-ros&quot;</p> 
         </CoverPhoto>
 
         <CaptionedPhoto imageSrc={soniaImage}>
