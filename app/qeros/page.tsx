@@ -11,8 +11,8 @@ import whereImage from './images/where@2x.jpg'
 import valleyImage from './images/valley@2x.jpg'
 import alpacasImage from './images/alpacas@2x.jpg'
 import silhouetteImage from './images/silhouette@2x.jpg'
-import PageTitle from '../images/components/pageTitle'
-import { Franklin } from '../images/components/localFonts'
+import PageTitle from '../components/pageTitle'
+import { Franklin } from '../components/localFonts'
 
 export default function Qeros() {
   
