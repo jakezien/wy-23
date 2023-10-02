@@ -2,11 +2,14 @@
 import Nav from "./nav"
 import { useState } from "react"
 import localFont from "next/font/local"
+
+
 const franklin = localFont({src: '../fonts/FranklinBold.woff2'}) 
 
 const Header = () => {
 
   const [showMobileMenu, setShowMobileMenu] = useState(false)
+  const [showDonate, setShowDonate] = useState(false)
 
   function toggleMobileMenu() {
     setShowMobileMenu(!showMobileMenu)
@@ -24,7 +27,7 @@ const Header = () => {
       </div>
       <Nav
         ulClassName={"flex-row hidden md:flex justify-between items-center uppercase tracking-[0.1em] " + franklin.className}
-        liClassName="mx-8 px-2 hover:text-hotPink transition-colors text-lg text-brown"
+        liClassName="mx-2 mx-4 lg:mx-8 px-2 hover:text-hotPink transition-colors text-lg text-brown"
         firstItemClassName="ml-1 mr-auto"
         lastItemClassName="ml-auto mr-1 hover:bg-hotPink hover:text-white rounded "
       />

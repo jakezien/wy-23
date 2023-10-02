@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     
     <html lang="en" className=''>
-      <body className={garamond.className}>        
+      <body className={garamond.className + ' text-brown'}>        
         <main>
           <Header />
             {children}

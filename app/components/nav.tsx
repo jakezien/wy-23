@@ -26,8 +26,10 @@ const Nav: React.FC<NavProps> = ({
           <Link href="/expeditions">Expeditions</Link>
         </li>
         <li className={liClassName}>
-          <Link href="/">Q’eros</Link>
+          <Link href="/qeros">Q’eros</Link>
         </li>
+        
+        {/*
         <li className={liClassName}>
           <Link href="/">Projects</Link>
         </li>
@@ -40,6 +42,8 @@ const Nav: React.FC<NavProps> = ({
         <li className={liClassName}>
           <Link href="/">About</Link>
         </li>
+        */}
+
         <li className={liClassName + " " + lastItemClassName}>
           <Link href="/" className="block px-3 py-1">Donate</Link>
         </li>

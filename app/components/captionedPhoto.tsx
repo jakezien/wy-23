@@ -1,24 +1,25 @@
 import React from "react"
-import Image from "next/image";
-import { Parallax } from 'react-scroll-parallax';
+import Image, { StaticImageData } from "next/image";
+import Parallax from './Parallax';
+import { ParallaxProps } from "../types/ParallaxProps";
 
-enum CaptionSide {
+export enum CaptionSide {
   Left, Right
 }
 
 type CaptionedPhotoProps = {
-  imageSrc?: string,
+  imageSrc?: string | StaticImageData,
   imageAlt?: string,
   caption?: string,
   captionSide?: CaptionSide,
   parallax?: ParallaxProps,
   className?: string,
   children?: React.ReactNode,
+  parallaxH?: boolean,
 }
 
 
-const CaptionedPhoto: React.FC<CaptionedPhotoProps> = (props) => {
-  
+const CaptionedPhoto: React.FC<CaptionedPhotoProps> = ({ captionSide = CaptionSide.Right, ...props }) => {
   let content = (
     <div className="max-w-xs my-0 mx-1">
       {props.children ? props.children : <p>{props.caption}</p>}
@@ -32,20 +33,30 @@ const CaptionedPhoto: React.FC<CaptionedPhotoProps> = (props) => {
     // parallaxProps.translateY = [-15, 15]
 
   return (
-    <div className={`${props.className} flex mx-auto w-5/6 py-8 my-8 `}>
-      {props.captionSide === CaptionSide.Left &&
-        <Parallax speed={props.parallax?.speed ?? -20} className="pr-20 flex flex-col justify-center">
-          {content}
-        </Parallax>
-      }
-      <div className="w-2/3 overflow-hidden">
-          {props.imageSrc && <Image src={props.imageSrc} alt={props.imageAlt ?? ""} className="w-full"/>}
+    <div className={`${props.className} md:flex mx-auto w-5/6 py-8 my-8 `}>
+      
+      
+      <div className="md:w-2/3 overflow-hidden">
+        {props.imageSrc &&
+          <Parallax parallaxProps={{ speed: props.parallax?.speed ?? 5 }}>
+          <Image
+            src={props.imageSrc}
+            alt={props.imageAlt ?? ""}
+            width={1200}
+            height={1200}
+            className="w-full h-full object-cover"
+          />
+          </Parallax>
+        }
       </div>
-      {props.captionSide === CaptionSide.Right &&
-        <Parallax speed={props.parallax?.speed ?? -20} className="pl-20 flex flex-col justify-center">
-          {content}
-        </Parallax>
-      }
+
+      <Parallax
+        parallaxProps={{ speed: props.parallax?.speed ?? -5 }}
+        className={`pr-20 flex flex-col justify-center bg-white ${captionSide == CaptionSide.Left && 'order-first' }`}
+      >
+        {content}
+      </Parallax>
+
     </div>
   )
 }

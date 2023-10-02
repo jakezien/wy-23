@@ -27,13 +27,20 @@ const CoverPhoto: React.FC<CoverPhotoProps> = ({ parallax = {
       ${props.fullHeight ? 'h-screen' : 'h-[90vh]'} 
     `}>
       <figure className={`w-full h-full z-0 ${props.fixed ? 'fixed' : 'absolute'}`}>
-        {props.bg ? props.bg :
+        
           
-          <Parallax parallaxProps={parallax} >
-            <Image src={props.imgSrc ?? ""} alt={props.imgAlt ?? ""} className="h-screen"></Image>
+        <Parallax parallaxProps={parallax} >
+          {props.bg ? props.bg :
+            <Image
+              src={props.imgSrc ?? ""}
+              alt={props.imgAlt ?? ""}
+              width={2000}
+              height={2000}
+              className="h-screen object-cover"
+            />
+          }
           </Parallax>
           
-        }
         {props.scrim && <div className="w-full h-full absolute bg-white z-[1]" />}
       </figure>
       <div className={`w-full m-auto relative z-10 text-white top-12 text-lg`}>
