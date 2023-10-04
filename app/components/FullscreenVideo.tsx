@@ -21,15 +21,12 @@ const FullscreenVideo: React.FC<Props> = ({src}) => {
     <CldVideoPlayer
         src={src}
         width={size.width}
-        height={size.height}
-      
-      autoPlay="always"
-      loop={true}
-      muted={true}
+        height={size.height}      
+        autoPlay="always"
+        loop={true}
+        muted={true}
         controls={false}
         videoRef={ref}
-        bigPlayButton={false}
-        playsInline={true}
     />
     </div>
   )
