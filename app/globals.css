@@ -42,7 +42,18 @@
 
   .text-title {
     @apply text-[6rem];
-    @apply md:text-[9rem]
+    @apply md:text-[9rem];
   }
+  
+  .fullscreen-video .video-js.vjs-fluid:not(.vjs-audio-only-mode) {
+    height: 100%;
+    padding-top: 0;
+    @apply bg-cloud;
+  }
+
+  .fullscreen-video video {
+    object-fit: cover !important;
+  }
+
 
 }

@@ -14,6 +14,9 @@ import schoolsImage from './home/schools@2x.jpg'
 import resolveConfig from 'tailwindcss/resolveConfig'
 import tailwindConfig from '../tailwind.config'
 import { GaramondDisplay } from './components/localFonts'
+import FullscreenVideo from './components/FullscreenVideo'
+import useWindowSize from './hooks/useWindowSize'
+
 const twConfig = resolveConfig(tailwindConfig)
 
 const Home: React.FC = () => {
@@ -21,13 +24,16 @@ const Home: React.FC = () => {
   let whiteColor = twConfig.theme?.colors?.white as string ?? ""
   let hotPinkColor = twConfig.theme?.colors?.hotPink as string ?? ""
 
+
   return (
     <>
       <section className="min-h-screen mb-[30vh]">
         <CoverPhoto
           fixed 
           bg={
-            <Image src={coverImage} width={2000} height={2000} alt='' className='w-full h-screen z-10 object-cover' />
+            <FullscreenVideo
+              src='https://res.cloudinary.com/dnmtpctxk/video/upload/home_iluhp4.mp4'
+            />
           }
           parallax={{
             startScroll: 0,
