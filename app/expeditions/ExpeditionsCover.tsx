@@ -42,8 +42,7 @@ const ExpeditionsCover = () => {
     className=""
   >
     <div className="absolute w-full h-full flex flex-col justify-center">
-      <h1 className="text-center mx-auto text-cloud mb-24 text-title tracking-tight">Expeditions</h1>
-      {/* <p className="text-cloud max-w-2xl mt-4 mx-auto visibility:hidden">In partnership with Q’ero families, Willka Yachay offers expeditions to individuals and groups who appreciate the Q’eros, support their sustainable development, seek a strong intercultural connection with&nbsp;them, and wish to learn from their teachings.</p> */}
+      <h1 className="text-center mx-auto text-cloud mb-24 md:mb-40 text-title tracking-tight">Expeditions</h1>
     </div>
   </ParallaxBannerLayer>
   )
@@ -70,7 +69,7 @@ const ExpeditionsCover = () => {
       <Image
         alt="A starry sky framed by mountains. At the base of the mountains, several tents glow from lanterns lit within."
         src={tentsImage}
-        className="w-full absolute left-0 lg:-bottom-[2rem] object-bottom expeditions-tent-mask"
+        className="w-full absolute left-0 bottom-0 lg:-bottom-[2rem] object-bottom expeditions-tent-mask"
         // className="w-full absolute left-0 right-0 bottom-[3vh] object-bottom expeditions-tent-mask"
         width="1200" 
         height="1200"
