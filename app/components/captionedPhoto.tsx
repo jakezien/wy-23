@@ -1,25 +1,33 @@
 import React from "react"
 import Image, { StaticImageData } from "next/image";
 import Parallax from './Parallax';
-import { ParallaxProps } from "../types/ParallaxProps";
+import { ParallaxProps } from "react-scroll-parallax/dist/components/Parallax/types";
+// import { ParallaxProps } from "../types/ParallaxProps";
 
 export enum CaptionSide {
   Left, Right
 }
 
 type CaptionedPhotoProps = {
-  imageSrc?: string | StaticImageData,
-  imageAlt?: string,
+  imgSrc?: string | StaticImageData,
+  imgAlt?: string,
+  imgClassName?: string,
+  imgParallax?: ParallaxProps,
   caption?: string,
   captionSide?: CaptionSide,
-  parallax?: ParallaxProps,
+  captionClassName?: string,
+  captionParallax?: ParallaxProps,
   className?: string,
   children?: React.ReactNode,
-  parallaxH?: boolean,
 }
 
 
-const CaptionedPhoto: React.FC<CaptionedPhotoProps> = ({ captionSide = CaptionSide.Right, ...props }) => {
+const CaptionedPhoto: React.FC<CaptionedPhotoProps> = ({
+  captionSide = CaptionSide.Right,
+  imgParallax = { speed: 0 },
+  captionParallax = { speed: 0 },
+  ...props
+}) => {
   let content = (
     <div className="max-w-xs my-0 mx-1 ">
       {props.children ? props.children : <p>{props.caption}</p>}
@@ -33,32 +41,32 @@ const CaptionedPhoto: React.FC<CaptionedPhotoProps> = ({ captionSide = CaptionSi
     // parallaxProps.translateY = [-15, 15]
 
   return (
-    <div className={`md:flex mx-auto w-full md:p-8 my-8 h-[55%] ${props.className}`}>
+    <div className={`md:flex mx-auto w-full md:px-16 my-40 h-[55%] ${props.className}`}>
       
       
-      <div className="md:w-2/3 overflow-hidden">
-        {props.imageSrc &&
+      <div className="w-full overflow-hidden">
+        {props.imgSrc &&
           <Parallax
-            parallaxProps={{ speed: props.parallax?.speed ?? 5 }}
-            className="h-full h-[800px]"
+            parallaxProps={imgParallax}
+            className="h-full"
           >
             <Image
-              src={props.imageSrc}
-              alt={props.imageAlt ?? ""}
+              src={props.imgSrc}
+              alt={props.imgAlt ?? ""}
               width={1200}
               height={1200}
-              className="w-full h-full object-cover"
+              className={"w-full h-full object-cover " + props.imgClassName}
             />
           </Parallax>
         }
       </div>
 
       <Parallax
-        parallaxProps={{ speed: props.parallax?.speed ?? -5 }}
+        parallaxProps={captionParallax}
         className={`
-          px-4 flex flex-col justify-center leading-snug 
-          ${captionSide == CaptionSide.Left ? 'order-first md:pr-20 ' : 'md:pl-20'}
-
+          flex flex-col justify-top leading-snug 
+          ${captionSide == CaptionSide.Left ? 'order-first md:pr-20 ' : ''} 
+          ${props.captionClassName}
         `}
       >
         {content}

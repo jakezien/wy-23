@@ -33,7 +33,7 @@ export default function Qeros() {
         fixed
         parallax={{
           startScroll: 0,
-          endScroll: 800,
+          endScroll: 300,
           opacity: [1,0],
         }}
       >
@@ -41,14 +41,18 @@ export default function Qeros() {
           <p className={"text-center text-5xl tracking-[0.2em] " + Franklin.className}>&quot;KEH-ros&quot;</p> 
         </CoverPhoto>
 
-        <CaptionedPhoto imageSrc={soniaImage} className='h-[55%]'>
-          <p className='flex align-top'>
-          <span className={'inline-block w-1/5 text-[11em] leading-[0.66em] mr-3 ' + Franklin.className}>T</span>
-          <span className='inline  w-3/5'>he Q’eros people are known as the wisdom keepers of the Andes. Considered to be the “último ayllu inka,” or the last Incan community of Peru, the Q’eros strive to preserve and promote their indigenous ethnic and cultural identity.</span>
+      <CaptionedPhoto
+        imgSrc={soniaImage}
+        imgClassName='md:w-[110%] '
+        className='mt-40'
+      >
+          <p className='flex align-top bg-cloud relative -left-[6.5rem] pl-8 pb-16 w-[125%]'>
+          <span className={'inline-block w-1/5 text-[11em] leading-[0.66em] mr-6 ' + Franklin.className}>T</span>
+          <span className='inline  w-4/5'>he Q’eros people are known as the wisdom keepers of the Andes. Considered to be the “último ayllu inka,” or the last Incan community of Peru, the Q’eros strive to preserve and promote their indigenous ethnic and cultural identity.</span>
           </p>
         </CaptionedPhoto>
 
-        <CaptionedPhoto parallaxH captionSide={CaptionSide.Left} imageSrc={skywalkImage}>          
+        <CaptionedPhoto captionSide={CaptionSide.Left} imgSrc={skywalkImage}>          
           <p>
             Peru’s Ministry of Culture designates Q’eros as a “national living cultural patrimony” for the continuity of its ancient Andean traditions.
           </p>
@@ -56,20 +60,21 @@ export default function Qeros() {
 
         
         <CoverPhoto
-          bg={<FullscreenVideo src='WY/offering_fuxfzs' />}
+          bg={<FullscreenVideo src='WY/offering_fuxfzs' className="fixed w-full h-full " />}
+          className='h-[200%]'
         >
           <ParallaxProvider>
             <ColorChangingText colors={[whiteColor, hotPinkColor]} className=' px-6'>
-              <p className="mt-80 mb-8">
-                Q’eros live a hardworking life at one with nature. They perform offerings to Pacha Mama, Mother Earth, and to the Apus, mountain spirits, in exchange for the well-being of their animals, crops and community.
+              <p className="mt-80 mb-8 text-5xl max-w-2xl leading-tight mx-auto">
+                Q’eros live a hardworking life at one with nature. They perform offerings to <em>Pacha Mama</em>, Mother Earth, and to the <em>Apus</em>, mountain spirits, in exchange for the well-being of their animals, crops and community.
               </p>
-              </ColorChangingText>
+            </ColorChangingText>
           </ParallaxProvider>
           <div className="w-full h-50 mt-6"></div>
         </CoverPhoto>
 
 
-        <CaptionedPhoto captionSide={CaptionSide.Left} imageSrc={threeMenImage} >
+        <CaptionedPhoto captionSide={CaptionSide.Left} imgSrc={threeMenImage} >
           <p>
             Worldview concepts of ayni, the importance of reciprocal sharing, and animu, awareness of an animated essence in all things, shape their interactions with each other and their environment.       
           </p>
@@ -77,7 +82,7 @@ export default function Qeros() {
 
 
 
-        <CaptionedPhoto imageSrc={sebImage} >
+        <CaptionedPhoto imgSrc={sebImage} >
           <p>
             Love, joy, perseverance, integrity, and contentment suffuse their daily lives.
           </p>  
@@ -99,7 +104,7 @@ export default function Qeros() {
         </CoverPhoto>
 
       
-        <CaptionedPhoto captionSide={CaptionSide.Left} imageSrc={valleyImage}> 
+        <CaptionedPhoto captionSide={CaptionSide.Left} imgSrc={valleyImage}> 
           <p>
             Q’eros travel between three different ecosystems that span from 15,500 feet down to 6,000 feet above sea level: from snowy peaks to ceja de selva, “the eyebrow of the jungle.”
           </p>
@@ -107,7 +112,7 @@ export default function Qeros() {
 
 
 
-        <CaptionedPhoto imageSrc={alpacasImage}>
+        <CaptionedPhoto imgSrc={alpacasImage}>
           <p>
             They raise llamas and alpacas at the highest altitudes; descend to grow potatoes and raise sheep; and descend further to grow corn, squash & other vegetables, and to harvest bamboo and wood for buildings, looms and flutes.
           </p>
@@ -115,7 +120,7 @@ export default function Qeros() {
 
 
 
-        <CaptionedPhoto captionSide={CaptionSide.Left}  imageSrc={silhouetteImage}>
+        <CaptionedPhoto captionSide={CaptionSide.Left}  imgSrc={silhouetteImage}>
           <p>
             Despite the harsh conditions to which they are exposed, and a history as targets of discrimination and marginalization, the Q’eros people endure. Willka Yachay helps them thrive.
           </p>

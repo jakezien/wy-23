@@ -50,19 +50,19 @@ const ColorChangingText: React.FC<PropsWithChildren<Props>> = ({colors, classNam
     // onChange: (e) => console.log('change', e),
     onProgressChange: onProgressChange,
     easing: "easeOutCubic",
-    speed:20,
+    speed:0,
   });
 
 
   return (
 
     <ParallaxProvider>
-    <div className={className} ref={ref as React.RefObject<HTMLDivElement>} style={{
-      color: color,
-      willChange: "color",
-    }}>
-      {children}
-    </div>
+      <div className={className} ref={ref as React.RefObject<HTMLDivElement>} style={{
+        color: color,
+        willChange: "color",
+      }}>
+        {children}
+      </div>
     </ParallaxProvider>
 
   )

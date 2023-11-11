@@ -65,7 +65,7 @@ const Home: React.FC = () => {
 
 
         <section className="min-h-screen">
-          <CaptionedPhoto imageSrc={expeditionsImage}>
+          <CaptionedPhoto imgSrc={expeditionsImage}>
           <CtaButton text='Expeditions' caption="Visit Q’eros" href="/expeditions" />
           <p className='ml-2 leading-snug'>
             Willka Yachay would love to collaborate with you in meeting the goals of contributing to and learning from the&nbsp;Q’eros.
@@ -74,7 +74,7 @@ const Home: React.FC = () => {
         </section>
         
         <section className="min-h-screen">
-          <CaptionedPhoto imageSrc={qerosImage}>
+          <CaptionedPhoto imgSrc={qerosImage}>
           <CtaButton text='Q’eros' caption="Who we support" href="/qeros" />
           <p className='ml-2 leading-snug'>
             Considered Peru’s last Inkan community, the Q’eros people are the wisdom keepers of the&nbsp;Andes.
@@ -83,7 +83,7 @@ const Home: React.FC = () => {
         </section>
 
         <section className="min-h-screen">
-          <CaptionedPhoto imageSrc={schoolsImage}>
+          <CaptionedPhoto imgSrc={schoolsImage}>
           <CtaButton text='Schools' caption="Our education initiative" href="/schools" />
           <p className='ml-2 leading-snug'>
             Willka Yachay builds schools high in the Andes. We collaborate with Q’ero parents and elders on construction, administration and curriculum development. We employ culturally sensitive teachers and provide all supplies, nutritious food and national and international field trips.
