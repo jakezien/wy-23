@@ -99,7 +99,6 @@ export default function Qeros() {
         </CoverPhoto>
 
       
-
         <CaptionedPhoto captionSide={CaptionSide.Left} imageSrc={valleyImage}> 
           <p>
             Q’eros travel between three different ecosystems that span from 15,500 feet down to 6,000 feet above sea level: from snowy peaks to ceja de selva, “the eyebrow of the jungle.”
