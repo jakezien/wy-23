@@ -11,18 +11,18 @@ import qerosImage from './home/cover@2x.jpg'
 import expeditionsImage from './home/expeditions.jpg'
 import schoolsImage from './home/schools@2x.jpg'
 
-import resolveConfig from 'tailwindcss/resolveConfig'
-import tailwindConfig from '../tailwind.config'
 import { GaramondDisplay } from './components/localFonts'
 import FullscreenVideo from './components/FullscreenVideo'
 import useWindowSize from './hooks/useWindowSize'
 
+import resolveConfig from 'tailwindcss/resolveConfig'
+import tailwindConfig from '../tailwind.config'
 const twConfig = resolveConfig(tailwindConfig)
+let whiteColor = twConfig.theme?.colors?.white as string ?? ""
+let hotPinkColor = twConfig.theme?.colors?.hotPink as string ?? ""
 
 const Home: React.FC = () => {
 
-  let whiteColor = twConfig.theme?.colors?.white as string ?? ""
-  let hotPinkColor = twConfig.theme?.colors?.hotPink as string ?? ""
 
 
   return (
@@ -32,7 +32,7 @@ const Home: React.FC = () => {
           fixed 
           bg={
             <FullscreenVideo
-              src='https://res.cloudinary.com/dnmtpctxk/video/upload/home_iluhp4.mp4'
+              src='WY/home_iluhp4'
             />
           }
           parallax={{

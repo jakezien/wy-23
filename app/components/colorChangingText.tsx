@@ -1,7 +1,9 @@
 'use client'
 
 import React, {PropsWithChildren, useRef} from "react";
-import { useParallax } from 'react-scroll-parallax';
+import { useParallax, ParallaxProvider } from 'react-scroll-parallax';
+
+
 
 const interpolate = require('color-interpolate');
 
@@ -54,12 +56,14 @@ const ColorChangingText: React.FC<PropsWithChildren<Props>> = ({colors, classNam
 
   return (
 
+    <ParallaxProvider>
     <div className={className} ref={ref as React.RefObject<HTMLDivElement>} style={{
       color: color,
       willChange: "color",
     }}>
       {children}
-      </div>
+    </div>
+    </ParallaxProvider>
 
   )
 }

@@ -13,6 +13,16 @@ import alpacasImage from './images/alpacas@2x.jpg'
 import silhouetteImage from './images/silhouette@2x.jpg'
 import PageTitle from '../components/pageTitle'
 import { Franklin } from '../components/localFonts'
+import FullscreenVideo from '../components/FullscreenVideo'
+
+import ColorChangingText from '../components/colorChangingText'
+import resolveConfig from 'tailwindcss/resolveConfig'
+import tailwindConfig from '../../tailwind.config'
+import ParallaxProvider from '../components/ParallaxProvider'
+
+const twConfig = resolveConfig(tailwindConfig)
+let whiteColor = twConfig.theme?.colors?.white as string ?? ""
+let hotPinkColor = twConfig.theme?.colors?.hotPink as string ?? ""
 
 export default function Qeros() {
   
@@ -31,9 +41,10 @@ export default function Qeros() {
           <p className={"text-center text-5xl tracking-[0.2em] " + Franklin.className}>&quot;KEH-ros&quot;</p> 
         </CoverPhoto>
 
-        <CaptionedPhoto imageSrc={soniaImage}>
-          <p>
-            The Q’eros people are known as the wisdom keepers of the Andes. Considered to be the “último ayllu inka,” or the last Incan community of Peru, the Q’eros strive to preserve and promote their indigenous ethnic and cultural identity.
+        <CaptionedPhoto imageSrc={soniaImage} className='h-[55%]'>
+          <p className='flex align-top'>
+          <span className={'inline-block w-1/5 text-[11em] leading-[0.66em] mr-3 ' + Franklin.className}>T</span>
+          <span className='inline  w-3/5'>he Q’eros people are known as the wisdom keepers of the Andes. Considered to be the “último ayllu inka,” or the last Incan community of Peru, the Q’eros strive to preserve and promote their indigenous ethnic and cultural identity.</span>
           </p>
         </CaptionedPhoto>
 
@@ -43,12 +54,20 @@ export default function Qeros() {
           </p>
         </CaptionedPhoto>
 
-      
-        <CoverPhoto scrim className="qeros-animation-0" imgSrc="">
-          <p>
-            Q’eros live a hardworking life at one with nature. They perform offerings to Pacha Mama, Mother Earth, and to the Apus, mountain spirits, in exchange for the well-being of their animals, crops and community.
-          </p>
+        
+        <CoverPhoto
+          bg={<FullscreenVideo src='WY/offering_fuxfzs' />}
+        >
+          <ParallaxProvider>
+            <ColorChangingText colors={[whiteColor, hotPinkColor]} className=' px-6'>
+              <p className="mt-80 mb-8">
+                Q’eros live a hardworking life at one with nature. They perform offerings to Pacha Mama, Mother Earth, and to the Apus, mountain spirits, in exchange for the well-being of their animals, crops and community.
+              </p>
+              </ColorChangingText>
+          </ParallaxProvider>
+          <div className="w-full h-50 mt-6"></div>
         </CoverPhoto>
+
 
         <CaptionedPhoto captionSide={CaptionSide.Left} imageSrc={threeMenImage} >
           <p>
@@ -65,17 +84,21 @@ export default function Qeros() {
         </CaptionedPhoto>
 
 
-
-        <CoverPhoto imgSrc={whereImage}>
-
-          <h2>Where in the World </h2>
+        <CoverPhoto
+          bg={<FullscreenVideo src='WY/where_n7tl6r' />}
+        >
+          <ParallaxProvider>
+            <ColorChangingText colors={[whiteColor, hotPinkColor]} className=' px-6'>
+            <h2>Where in the World </h2>
           <p>
             The remote villages of Q’eros are located 14,500 feet above sea level in the snow-capped Cordillera Vilcanota range, the highest mountain chain in southeastern Peru. There are over 2,000 people who live in the nation’s fourteen villages, spread across many river valleys.
           </p>
-
+              </ColorChangingText>
+          </ParallaxProvider>
+          <div className="w-full h-50 mt-6"></div>
         </CoverPhoto>
 
-
+      
 
         <CaptionedPhoto captionSide={CaptionSide.Left} imageSrc={valleyImage}> 
           <p>

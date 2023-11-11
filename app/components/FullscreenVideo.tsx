@@ -11,14 +11,11 @@ interface Props {
 
 const FullscreenVideo: React.FC<Props> = ({src}) => {
   let size = useWindowSize()
-  console.log(size)
   let ref = useRef<HTMLVideoElement>(null)
-
-
 
   return (
     <div className="fullscreen-video bg-cloud">
-    <CldVideoPlayer
+      <CldVideoPlayer
         src={src}
         width={size.width}
         height={size.height}      

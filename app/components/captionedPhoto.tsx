@@ -21,7 +21,7 @@ type CaptionedPhotoProps = {
 
 const CaptionedPhoto: React.FC<CaptionedPhotoProps> = ({ captionSide = CaptionSide.Right, ...props }) => {
   let content = (
-    <div className="max-w-xs my-0 mx-1">
+    <div className="max-w-xs my-0 mx-1 ">
       {props.children ? props.children : <p>{props.caption}</p>}
     </div>
   )
@@ -33,7 +33,7 @@ const CaptionedPhoto: React.FC<CaptionedPhotoProps> = ({ captionSide = CaptionSi
     // parallaxProps.translateY = [-15, 15]
 
   return (
-    <div className={`md:flex mx-auto w-full md:p-8 my-8 ${props.className}`}>
+    <div className={`md:flex mx-auto w-full md:p-8 my-8 h-[55%] ${props.className}`}>
       
       
       <div className="md:w-2/3 overflow-hidden">
@@ -56,7 +56,7 @@ const CaptionedPhoto: React.FC<CaptionedPhotoProps> = ({ captionSide = CaptionSi
       <Parallax
         parallaxProps={{ speed: props.parallax?.speed ?? -5 }}
         className={`
-          px-4 flex flex-col justify-center text-lg leading-snug 
+          px-4 flex flex-col justify-center leading-snug 
           ${captionSide == CaptionSide.Left ? 'order-first md:pr-20 ' : 'md:pl-20'}
 
         `}

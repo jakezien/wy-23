@@ -17,9 +17,9 @@ export default function RootLayout({
 }) {
   return (
     
-    <html lang="en" className=''>
-      <body className={garamond.className + ' text-brown'}>        
-        <main>
+    <html lang="en" className='w-full h-full'>
+      <body className={'w-full h-full ' + garamond.className + ' text-brown'}>        
+        <main className='w-full h-full'>
           <Header />
             {children}
           <Footer/>
