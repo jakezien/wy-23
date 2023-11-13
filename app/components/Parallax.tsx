@@ -5,14 +5,17 @@ import { ParallaxProps } from "react-scroll-parallax/dist/components/Parallax/ty
 
 
 interface Props {
-  className?: string
+  className?: string,
+  horizontal?: boolean,
   parallaxProps: ParallaxProps,
 }
 
-const WyParallax: React.FC<PropsWithChildren<Props>> = ({className, parallaxProps, children}) => {
+const WyParallax: React.FC<PropsWithChildren<Props>> = ({className, horizontal = false, parallaxProps, children}) => {
 
   return (
-      <ParallaxProvider>
+    <ParallaxProvider
+      scrollAxis={horizontal ? "horizontal" : "vertical"}
+    >
         <Parallax className={className} {...parallaxProps} >
           {children}
         </Parallax>

@@ -13,6 +13,7 @@ type CaptionedPhotoProps = {
   imgAlt?: string,
   imgClassName?: string,
   imgParallax?: ParallaxProps,
+  imgParallaxHorizontal?: boolean,
   caption?: string,
   captionSide?: CaptionSide,
   captionClassName?: string,
@@ -25,6 +26,7 @@ type CaptionedPhotoProps = {
 const CaptionedPhoto: React.FC<CaptionedPhotoProps> = ({
   captionSide = CaptionSide.Right,
   imgParallax = { speed: 0 },
+  imgParallaxHorizontal = false,
   captionParallax = { speed: 0 },
   ...props
 }) => {
@@ -42,11 +44,10 @@ const CaptionedPhoto: React.FC<CaptionedPhotoProps> = ({
 
   return (
     <div className={`md:flex mx-auto w-full md:px-16 my-40 h-[55%] ${props.className}`}>
-      
-      
       <div className="w-full overflow-hidden">
         {props.imgSrc &&
           <Parallax
+            horizontal={imgParallaxHorizontal}
             parallaxProps={imgParallax}
             className="h-full"
           >
