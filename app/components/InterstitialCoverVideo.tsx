@@ -51,8 +51,7 @@ const InterstitialCoverVideo: React.FC<Props> = ({ ...props }) => {
           paused: true,
           scrollTrigger: {
             trigger: containerRef.current,
-            scrub: 1,
-            // pin: true,
+            scrub: 0.25,
             // start: "top center",
             // end: "+=100%"
           }
@@ -65,7 +64,7 @@ const InterstitialCoverVideo: React.FC<Props> = ({ ...props }) => {
           )
           .to(
             '[data-animation-id="video-text"]',
-            { duration: 10, y: "300%", ease: "sine.easeOut" },
+            { duration: 10, y: `+=${size.height * 0.75}`, ease: "sine.easeOut" },
             0.0
           )
           .fromTo(
@@ -79,13 +78,13 @@ const InterstitialCoverVideo: React.FC<Props> = ({ ...props }) => {
             { duration: 2.5, opacity: 0 },
             5.0
           )
-      
+      // return () => {ctx.revert()}
     }, containerRef);
-  }, []);
+  }, [size.height]);
 
   return (
     <div
-      className={`h-[200%] w-full flex my-0 overflow-hidden relative ${
+      className={`h-[150%] w-full flex my-0 overflow-hidden relative ${
         props.className ?? ""
         }`}
       ref={containerRef}
@@ -95,19 +94,19 @@ const InterstitialCoverVideo: React.FC<Props> = ({ ...props }) => {
         >
         <FullscreenVideo
           src={props.src}
-          className="w-full h-full fixed  top-0 opacity-0 "
+          className="w-full h-full fixed top-0 opacity-0 "
           data-animation-id="video-bg"
         />
-        <div className="absolute top-0 left-0 w-full h-2/4 bg-gradient-to-b from-cloud" />
-        <div className="absolute bottom-0 left-0 w-full h-2/4 bg-gradient-to-t from-cloud" />
       </figure>
-      <div className={`w-full mx-auto mt-0 relative -z-10 text-white top-12`}>
+      <div className={`w-full mx-auto mt-0 relative -z-10 text-white top-0`}>
+        <div className="absolute top-0 left-0 w-full h-1/4 bg-gradient-to-b pt-40 from-cloud" />
         <div
           className="mt-0 mb-8 text-4xl max-w-2xl leading-tight mx-auto text-hotPink"
           data-animation-id="video-text"
         >
           {props.children}
         </div>
+        <div className="absolute bottom-0 left-0 w-full h-1/4 bg-gradient-to-t from-cloud" />
       </div>
     </div>
   );
