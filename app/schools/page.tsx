@@ -25,7 +25,7 @@ export default function Schools() {
         <PageTitle title='Schools'></PageTitle>
       </CoverPhoto>
 
-        <CaptionedPhoto captionSide={CaptionSide.Left} imageSrc={buildingImage}>
+        <CaptionedPhoto captionSide={CaptionSide.Left} imgSrc={buildingImage}>
           <p className="mb-4">
             Willka Yachay builds and sustains culturally and ecologically based schools high in the Andes. We currently support eight schools: three pre-k, three primary schools, one high school and one adult school.
           </p>
@@ -34,26 +34,26 @@ export default function Schools() {
           </p>
         </CaptionedPhoto>
 
-        <CaptionedPhoto imageSrc={topImage}>          
+        <CaptionedPhoto imgSrc={topImage}>          
           <p className="mb-4">
             Willka Yachay collaborates with Q’ero parents and elders, acts as a school system administrator, creates and coordinates curriculum development, hires and supports culturally sensitive teachers, provides all supplies and nutritious food, and plans educational (and fun) national and international educational field trips.
           </p>
         </CaptionedPhoto>
 
-      <CaptionedPhoto captionSide={CaptionSide.Left} imageSrc={chalkImage}>
+      <CaptionedPhoto captionSide={CaptionSide.Left} imgSrc={chalkImage}>
         <h2 className={h2ClassName}>Modern Inkan Education</h2>
           <p className="mb-4">
             We provide an education that enables young Q’eros to direct their community’s future. Our schools teach the children to read and write in both their native Quechua and in Spanish, and prepare them to interact with the modern world while fostering their soulful and intelligent culture.
           </p>
       </CaptionedPhoto>
 
-      <CaptionedPhoto imageSrc={girlsImage}>
+      <CaptionedPhoto imgSrc={girlsImage}>
         <p className="mb-4">
         Our schools are innovative because our students are becoming aware of their Inkan origins and using both traditional wisdom and modern knowledge for empowerment in today’s world. They are realizing that they, like their ancestors before them, are capable of achieving greatness by using their own resources and creativity within the context of their indigenous culture and mountain homeland.
         </p>
       </CaptionedPhoto>
 
-      <CaptionedPhoto captionSide={CaptionSide.Left} imageSrc={pazImage}>
+      <CaptionedPhoto captionSide={CaptionSide.Left} imgSrc={pazImage}>
         <h2 className={h2ClassName}>
           Preschool & Primary Schools
         </h2>
@@ -64,7 +64,7 @@ export default function Schools() {
 
       
 
-      <CaptionedPhoto imageSrc={hsImage}>
+      <CaptionedPhoto imgSrc={hsImage}>
         <h2 className={h2ClassName}>
           Ethnic High School & Adult School
         </h2>
@@ -77,7 +77,7 @@ export default function Schools() {
       </CaptionedPhoto>
 
 
-      <CaptionedPhoto captionSide={CaptionSide.Left} imageSrc={mathImage}>
+      <CaptionedPhoto captionSide={CaptionSide.Left} imgSrc={mathImage}>
         <h2 className={h2ClassName}>
           Inkan Mathematics
         </h2>
