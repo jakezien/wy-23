@@ -66,6 +66,7 @@ export default function Qeros() {
         imgParallax={{ speed: 10 }}
         captionSide={CaptionSide.Left}
         imgSrc={skywalkImage}
+        className='mb-0'
       >          
         <p>
           Peru’s Ministry of Culture designates Q’eros as a “national living cultural patrimony” for the continuity of its ancient Andean traditions.
@@ -78,7 +79,8 @@ export default function Qeros() {
         <p>Q’eros live a hardworking life at one with nature. They perform offerings to <em>Pacha Mama</em>, Mother Earth, and to the <em>Apus</em>, mountain spirits, in exchange for the well-being of their animals, crops and community.</p>
       </InterstitialCoverVideo>
 
-        <CaptionedPhoto captionSide={CaptionSide.Left} imgSrc={threeMenImage} >
+      <CaptionedPhoto captionSide={CaptionSide.Left} imgSrc={threeMenImage}
+      className='mt-0'>
           <p>
             Worldview concepts of ayni, the importance of reciprocal sharing, and animu, awareness of an animated essence in all things, shape their interactions with each other and their environment.       
           </p>
@@ -86,7 +88,7 @@ export default function Qeros() {
 
 
 
-        <CaptionedPhoto imgSrc={sebImage} >
+        <CaptionedPhoto imgSrc={sebImage}  className='mb-0'>
           <p>
             Love, joy, perseverance, integrity, and contentment suffuse their daily lives.
           </p>  
@@ -101,7 +103,7 @@ export default function Qeros() {
         </InterstitialCoverVideo>
 
       
-        <CaptionedPhoto captionSide={CaptionSide.Left} imgSrc={valleyImage}> 
+        <CaptionedPhoto captionSide={CaptionSide.Left} imgSrc={valleyImage} className='mt-0'> 
           <p>
             Q’eros travel between three different ecosystems that span from 15,500 feet down to 6,000 feet above sea level: from snowy peaks to ceja de selva, “the eyebrow of the jungle.”
           </p>

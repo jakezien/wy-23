@@ -11,6 +11,9 @@ import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "../../tailwind.config";
 import useWindowSize from "../hooks/useWindowSize";
 import gsap from "gsap";
+import ScrollTrigger from 'gsap/ScrollTrigger'
+
+
 
 const twConfig = resolveConfig(tailwindConfig);
 let whiteColor = (twConfig.theme?.colors?.white as string) ?? "";
@@ -33,9 +36,10 @@ const InterstitialCoverVideo: React.FC<Props> = ({ ...props }) => {
   let size = useWindowSize();
 
   const tl = useRef();
-  const containerRef = useRef()
+  const containerRef = useRef(null)
 
   useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger)
     let ctx = gsap.context(() => {
       // let q = gsap.utils.selector(containerRef)
       // let b = q('[data-animation-id="video-bg"]')
@@ -43,43 +47,61 @@ const InterstitialCoverVideo: React.FC<Props> = ({ ...props }) => {
 
       tl.current ==
         gsap
-          .timeline({paused:true})
-          .to(
+        .timeline({
+          paused: true,
+          scrollTrigger: {
+            trigger: containerRef.current,
+            scrub: 1,
+            // pin: true,
+            // start: "top center",
+            // end: "+=100%"
+          }
+        })
+          .fromTo(
             '[data-animation-id="video-bg"]',
-            { duration: 2.5, opacity: 1 },
-            1.5
+            { duration: 2.5, opacity: 0 },
+            { opacity: 1},
+            3.0
           )
           .to(
             '[data-animation-id="video-text"]',
-            { duration: 10, y: "150%", ease: "sine.easeOut" },
-            0
+            { duration: 10, y: "300%", ease: "sine.easeOut" },
+            0.0
           )
           .fromTo(
             '[data-animation-id="video-text"]',
             { duration: 1.5, color: "#F22E60" },
             { color: "#fafaff" },
-            2
-          );
-    });
+            3.0
+          )
+          .to(
+            '[data-animation-id="video-bg"]',
+            { duration: 2.5, opacity: 0 },
+            5.0
+          )
+      
+    }, containerRef);
   }, []);
 
   return (
     <div
-      className={`h-[200%] w-full flex mt-44 overflow-hidden relative ${
+      className={`h-[200%] w-full flex my-0 overflow-hidden relative ${
         props.className ?? ""
         }`}
-      // ref={containerRef}
+      ref={containerRef}
     >
-      <figure className={`w-full h-full fixed -z-10  `}>
+      <figure
+        className={`w-full h-full pt-80 fixed -z-10`}
+        >
         <FullscreenVideo
           src={props.src}
-          className="fixed w-full h-full z-0 bg-slate-400"
+          className="w-full h-full fixed  top-0 opacity-0 "
           data-animation-id="video-bg"
         />
-        <div className="absolute top-0 left-0 w-full h-1/4 bg-gradient-to-b from-cloud" />
-        <div className="absolute bottom-0 left-0 w-full h-1/4 bg-gradient-to-t from-cloud" />
+        <div className="absolute top-0 left-0 w-full h-2/4 bg-gradient-to-b from-cloud" />
+        <div className="absolute bottom-0 left-0 w-full h-2/4 bg-gradient-to-t from-cloud" />
       </figure>
-      <div className={`w-full mx-auto mt-0 relative z-10 text-white top-12`}>
+      <div className={`w-full mx-auto mt-0 relative -z-10 text-white top-12`}>
         <div
           className="mt-0 mb-8 text-4xl max-w-2xl leading-tight mx-auto text-hotPink"
           data-animation-id="video-text"
