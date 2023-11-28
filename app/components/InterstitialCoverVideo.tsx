@@ -11,9 +11,7 @@ import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "../../tailwind.config";
 import useWindowSize from "../hooks/useWindowSize";
 import gsap from "gsap";
-import ScrollTrigger from 'gsap/ScrollTrigger'
-
-
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 const twConfig = resolveConfig(tailwindConfig);
 let whiteColor = (twConfig.theme?.colors?.white as string) ?? "";
@@ -35,49 +33,45 @@ type Props = {
 const InterstitialCoverVideo: React.FC<Props> = ({ ...props }) => {
   let size = useWindowSize();
 
-  const tl = useRef();
-  const containerRef = useRef(null)
+  const tl = useRef(gsap.timeline());
+  const containerRef = useRef(null);
 
   useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
+    gsap.registerPlugin(ScrollTrigger);
     let ctx = gsap.context(() => {
       // let q = gsap.utils.selector(containerRef)
       // let b = q('[data-animation-id="video-bg"]')
       // console.log("poooooops", b)
 
-      tl.current ==
-        gsap
-        .timeline({
+      tl.current = gsap.timeline({
           paused: true,
           scrollTrigger: {
             trigger: containerRef.current,
             scrub: 0.25,
-            // start: "top center",
-            // end: "+=100%"
-          }
+          },
         })
-          .fromTo(
-            '[data-animation-id="video-bg"]',
-            { duration: 2.5, opacity: 0 },
-            { opacity: 1},
-            3.0
-          )
-          .to(
-            '[data-animation-id="video-text"]',
-            { duration: 10, y: `+=${size.height * 0.75}`, ease: "sine.easeOut" },
-            0.0
-          )
-          .fromTo(
-            '[data-animation-id="video-text"]',
-            { duration: 1.5, color: "#F22E60" },
-            { color: "#fafaff" },
-            3.0
-          )
-          .to(
-            '[data-animation-id="video-bg"]',
-            { duration: 2.5, opacity: 0 },
-            5.0
-          )
+        .fromTo(
+          '[data-animation-id="video-bg"]',
+          { duration: 2.5, opacity: 0 },
+          { opacity: 1 },
+          3.0
+        )
+        .to(
+          '[data-animation-id="video-text"]',
+          { duration: 10, y: `+=${size.height * 0.75}`, ease: "sine.easeOut" },
+          0.0
+        )
+        .fromTo(
+          '[data-animation-id="video-text"]',
+          { duration: 1.5, color: "#F22E60" },
+          { color: "#fafaff" },
+          3.0
+        )
+        .to(
+          '[data-animation-id="video-bg"]',
+          { duration: 2.5, opacity: 0 },
+          5.0
+        );
       // return () => {ctx.revert()}
     }, containerRef);
   }, [size.height]);
@@ -86,12 +80,10 @@ const InterstitialCoverVideo: React.FC<Props> = ({ ...props }) => {
     <div
       className={`h-[150%] w-full flex my-0 overflow-hidden relative ${
         props.className ?? ""
-        }`}
+      }`}
       ref={containerRef}
     >
-      <figure
-        className={`w-full h-full pt-80 fixed -z-10`}
-        >
+      <figure className={`w-full h-full pt-80 fixed -z-10`}>
         <FullscreenVideo
           src={props.src}
           className="w-full h-full fixed top-0 opacity-0 "

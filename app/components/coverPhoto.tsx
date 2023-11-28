@@ -1,53 +1,86 @@
-import Image, { StaticImageData } from 'next/image';
-import Parallax from './Parallax';
-import ParallaxProvider from './ParallaxProvider'
-import { ParallaxProps } from 'react-scroll-parallax/dist/components/Parallax/types';
+"use client";
+import Image, { StaticImageData } from "next/image";
+import useWindowSize from "../hooks/useWindowSize";
+import { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 interface CoverPhotoProps {
-  imgSrc?: string | StaticImageData,
-  imgAlt?: string,
-  className?: string,
-  fullHeight?: boolean,
-  parallax?: ParallaxProps,
-  bg?: React.ReactNode,
-  scrim?: boolean
-  children?: React.ReactNode,
-  caption?: string,
-  fixed?: boolean,
+  imgSrc?: string | StaticImageData;
+  imgAlt?: string;
+  className?: string;
+  fullHeight?: boolean;
+  bg?: React.ReactNode;
+  children?: React.ReactNode;
+  caption?: string;
+  fixed?: boolean;
 }
 
-const CoverPhoto: React.FC<CoverPhotoProps> = ({ parallax = {
-  startScroll: 0,
-  endScroll: 600,
-  speed: 4
-}, ...props }) => {
+const CoverPhoto: React.FC<CoverPhotoProps> = (props) => {
+  let size = useWindowSize();
+
+  const tl = useRef(gsap.timeline());
+  const containerRef = useRef(null);
+
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    let ctx = gsap.context(() => {
+      tl.current = gsap.timeline({
+        paused: true,
+        scrollTrigger: {
+          scrub: 0.25,
+        },
+      });
+
+      if (props.fixed) {
+        tl.current
+          .fromTo(
+            '[data-animation-id="cover-bg"]',
+            { duration: 8, opacity: 1, y: "2.5%" },
+            { opacity: 0, y: "-2.5%" }
+          )
+          .to('[data-animation-id="cover-text"]', {
+            start:0,
+            duration: 10,
+            y: `+=${size.height * 0.75}`,
+            ease: "sine.easeOut",
+          });
+      }
+    }, containerRef);
+  }, [size.height, containerRef, props.fixed]);
+
   return (
-    <div className={`${props.className ?? ""} 
+    <div
+      ref={containerRef}
+      className={`${props.className ?? ""} 
       w-full flex overflow-hidden relative
-      ${props.fullHeight ? 'h-screen' : 'h-[90vh]'} 
-    `}>
-      <figure className={`w-full h-full z-0 ${props.fixed ? 'fixed' : 'absolute'}`}>
-        
-          
-        <Parallax parallaxProps={parallax} >
-          {props.bg ? props.bg :
-            <Image
-              src={props.imgSrc ?? ""}
-              alt={props.imgAlt ?? ""}
-              width={2000}
-              height={2000}
-              className="h-screen object-cover"
-            />
-          }
-          </Parallax>
-          
-        {props.scrim && <div className="w-full h-full absolute bg-white z-[1]" />}
+      ${props.fullHeight ? "h-screen" : "h-[90vh]"} 
+    `}
+    >
+      <figure
+        className={`w-full h-full -z-10 ${props.fixed ? "fixed" : "absolute"}`}
+        data-animation-id="cover-bg"
+      >
+        {props.bg ? (
+          props.bg
+        ) : (
+          <Image
+            src={props.imgSrc ?? ""}
+            alt={props.imgAlt ?? ""}
+            width={2000}
+            height={2000}
+            className="h-[105vh] -top-[2.5%] relative object-cover"
+          />
+        )}
       </figure>
-      <div className={`w-full m-auto relative z-10 text-white top-12`}>
+      <div
+        data-animation-id="cover-text"
+        className={`w-full m-auto relative z-10 text-white top-12`}
+      >
         {props.children ? props.children : <p>{props.caption}</p>}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CoverPhoto
+export default CoverPhoto;

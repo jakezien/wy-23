@@ -1,5 +1,5 @@
 import CoverPhoto from '../components/coverPhoto'
-import CaptionedPhoto, {CaptionSide} from '../components/captionedPhoto'
+import CaptionedPhoto from '../components/captionedPhoto'
 import CtaButton from '../components/ctaButton'
 import PageTitle from '../components/pageTitle'
 
@@ -25,7 +25,7 @@ export default function Schools() {
         <PageTitle title='Schools'></PageTitle>
       </CoverPhoto>
 
-        <CaptionedPhoto captionSide={CaptionSide.Left} imgSrc={buildingImage}>
+        <CaptionedPhoto captionLeft imgSrc={buildingImage}>
           <p className="mb-4">
             Willka Yachay builds and sustains culturally and ecologically based schools high in the Andes. We currently support eight schools: three pre-k, three primary schools, one high school and one adult school.
           </p>
@@ -40,7 +40,7 @@ export default function Schools() {
           </p>
         </CaptionedPhoto>
 
-      <CaptionedPhoto captionSide={CaptionSide.Left} imgSrc={chalkImage}>
+      <CaptionedPhoto captionLeft imgSrc={chalkImage}>
         <h2 className={h2ClassName}>Modern Inkan Education</h2>
           <p className="mb-4">
             We provide an education that enables young Q’eros to direct their community’s future. Our schools teach the children to read and write in both their native Quechua and in Spanish, and prepare them to interact with the modern world while fostering their soulful and intelligent culture.
@@ -53,7 +53,7 @@ export default function Schools() {
         </p>
       </CaptionedPhoto>
 
-      <CaptionedPhoto captionSide={CaptionSide.Left} imgSrc={pazImage}>
+      <CaptionedPhoto captionLeft imgSrc={pazImage}>
         <h2 className={h2ClassName}>
           Preschool & Primary Schools
         </h2>
@@ -77,7 +77,7 @@ export default function Schools() {
       </CaptionedPhoto>
 
 
-      <CaptionedPhoto captionSide={CaptionSide.Left} imgSrc={mathImage}>
+      <CaptionedPhoto captionLeft imgSrc={mathImage}>
         <h2 className={h2ClassName}>
           Inkan Mathematics
         </h2>

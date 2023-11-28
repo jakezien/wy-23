@@ -1,5 +1,5 @@
 import CoverPhoto from "../components/coverPhoto";
-import CaptionedPhoto, { CaptionSide } from "../components/captionedPhoto";
+import CaptionedPhoto from "../components/captionedPhoto";
 import CtaButton from "../components/ctaButton";
 
 import coverImage from "./images/cover@2x.jpg";
@@ -35,11 +35,6 @@ export default function Qeros() {
       <CoverPhoto
         imgSrc={coverImage}
         fixed
-        parallax={{
-          startScroll: 0,
-          endScroll: 300,
-          opacity: [1, 0],
-        }}
       >
         <PageTitle title="Q’eros"></PageTitle>
         <p
@@ -53,10 +48,10 @@ export default function Qeros() {
 
       <CaptionedPhoto
         imgSrc={soniaImage}
-        imgParallaxHorizontal={true}
-        imgParallax={{ speed: 10 }}
+        imgParallaxH={true}
         imgClassName="md:w-[110%] "
         className="mt-40"
+        delayPhoto={true}
       >
         <p className="flex align-top bg-cloud relative -left-[6.5rem] -top-8 p-8 pb-16 w-[150%]">
           <span
@@ -77,9 +72,8 @@ export default function Qeros() {
       </CaptionedPhoto>
 
       <CaptionedPhoto
-        imgParallaxHorizontal={true}
-        imgParallax={{ speed: 10 }}
-        captionSide={CaptionSide.Left}
+        
+        captionLeft
         imgSrc={skywalkImage}
         className="mb-0 bg-cloud"
       >
@@ -100,7 +94,7 @@ export default function Qeros() {
       </InterstitialCoverVideo>
 
       <CaptionedPhoto
-        captionSide={CaptionSide.Left}
+        captionLeft
         imgSrc={threeMenImage}
         className="mt-0 bg-cloud"
       >
@@ -129,7 +123,7 @@ export default function Qeros() {
       </InterstitialCoverVideo>
 
       <CaptionedPhoto
-        captionSide={CaptionSide.Left}
+        captionLeft
         imgSrc={valleyImage}
         className="mt-0 bg-cloud "
       >
@@ -149,7 +143,7 @@ export default function Qeros() {
         </p>
       </CaptionedPhoto>
 
-      <CaptionedPhoto captionSide={CaptionSide.Left} imgSrc={silhouetteImage}>
+      <CaptionedPhoto captionLeft imgSrc={silhouetteImage} imgParallaxH>
         <p>
           Despite the harsh conditions to which they are exposed, and a history
           as targets of discrimination and marginalization, the Q’eros people
@@ -160,8 +154,9 @@ export default function Qeros() {
       <CtaButton
         href="/projects"
         text="Projects"
-        caption="See how we help"
         next
+        caption="See how we help"
+        className="-mt-40 mb-60"
       />
     </>
   );

@@ -35,11 +35,6 @@ const Home: React.FC = () => {
               src='WY/home_iluhp4'
             />
           }
-          parallax={{
-            startScroll: 0,
-            endScroll: 800,
-            opacity: [1,0],
-          }}
         >
           <Logotype horizontal className="fill-cloud block w-[70%] md:w-[55%] mx-auto"/>
           <hr className="h-[1.5px] bg-cloud my-8 md:my-16 w-2/3 mx-auto"/>
