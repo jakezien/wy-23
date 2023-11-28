@@ -1,69 +1,94 @@
-'use client'
-import React from "react"
+"use client";
+import React, { useLayoutEffect, useRef } from "react";
 import Image, { StaticImageData } from "next/image";
-import Parallax from './Parallax';
-import ParallaxProvider from './ParallaxProvider';
+import Parallax from "./Parallax";
+import ParallaxProvider from "./ParallaxProvider";
 import { ParallaxProps } from "react-scroll-parallax/dist/components/Parallax/types";
 // import { ParallaxProps } from "../types/ParallaxProps";
 import FullscreenVideo from "./FullscreenVideo";
 import ColorChangingText from "./colorChangingText";
-import resolveConfig from 'tailwindcss/resolveConfig'
-import tailwindConfig from '../../tailwind.config'
+import resolveConfig from "tailwindcss/resolveConfig";
+import tailwindConfig from "../../tailwind.config";
 import useWindowSize from "../hooks/useWindowSize";
-const twConfig = resolveConfig(tailwindConfig)
-let whiteColor = twConfig.theme?.colors?.white as string ?? ""
-let hotPinkColor = twConfig.theme?.colors?.hotPink as string ?? ""
+import gsap from "gsap";
 
+const twConfig = resolveConfig(tailwindConfig);
+let whiteColor = (twConfig.theme?.colors?.white as string) ?? "";
+let hotPinkColor = (twConfig.theme?.colors?.hotPink as string) ?? "";
 
 type Props = {
-  src: string,
-  imgAlt?: string,
-  imgClassName?: string,
-  imgParallax?: ParallaxProps,
-  imgParallaxHorizontal?: boolean,
-  caption?: string,
-  captionClassName?: string,
-  captionParallax?: ParallaxProps,
-  className?: string,
-  children?: React.ReactNode,
-}
+  src: string;
+  imgAlt?: string;
+  imgClassName?: string;
+  imgParallax?: ParallaxProps;
+  imgParallaxHorizontal?: boolean;
+  caption?: string;
+  captionClassName?: string;
+  captionParallax?: ParallaxProps;
+  className?: string;
+  children?: React.ReactNode;
+};
 
+const InterstitialCoverVideo: React.FC<Props> = ({ ...props }) => {
+  let size = useWindowSize();
 
-const InterstitialCoverVideo: React.FC<Props> = ({
-  ...props
-}) => {  
-  let size = useWindowSize()
-            
+  const tl = useRef();
+  const containerRef = useRef()
+
+  useLayoutEffect(() => {
+    let ctx = gsap.context(() => {
+      // let q = gsap.utils.selector(containerRef)
+      // let b = q('[data-animation-id="video-bg"]')
+      // console.log("poooooops", b)
+
+      tl.current ==
+        gsap
+          .timeline({paused:true})
+          .to(
+            '[data-animation-id="video-bg"]',
+            { duration: 2.5, opacity: 1 },
+            1.5
+          )
+          .to(
+            '[data-animation-id="video-text"]',
+            { duration: 10, y: "150%", ease: "sine.easeOut" },
+            0
+          )
+          .fromTo(
+            '[data-animation-id="video-text"]',
+            { duration: 1.5, color: "#F22E60" },
+            { color: "#fafaff" },
+            2
+          );
+    });
+  }, []);
+
   return (
-  <div className={`h-[150%] w-full flex overflow-hidden relative ${props.className ?? ""}`}>
-    <figure className={`w-full h-full z-0 absolute`}>   
-      <Parallax parallaxProps={{
-        speed: -50,
-        rootMargin: {top:-size.height/2, bottom:size.height/2, left:0, right:0},
-        opacity: [0,1]
-      }}>
-        <FullscreenVideo src={props.src} className="fixed w-full h-full " />
-      </Parallax>
-    </figure>
-    <div className={`w-full mx-auto relative z-10 text-white top-12`}>
-      <ParallaxProvider>
-          <Parallax parallaxProps={{
-            easing: "easeOutQuad",
-            rootMargin: {top:-size.height/3, bottom:0, left:0, right:0},
-            translateY: ["0%", "350%"]
-          }}>
-          
-            
-            <div className="mt-0 mb-8 text-4xl max-w-2xl leading-tight mx-auto text-hotPink">
-              {props.children}
-              
-            </div>
-          
-        </Parallax>
-      </ParallaxProvider>
+    <div
+      className={`h-[200%] w-full flex mt-44 overflow-hidden relative ${
+        props.className ?? ""
+        }`}
+      // ref={containerRef}
+    >
+      <figure className={`w-full h-full fixed -z-10  `}>
+        <FullscreenVideo
+          src={props.src}
+          className="fixed w-full h-full z-0 bg-slate-400"
+          data-animation-id="video-bg"
+        />
+        <div className="absolute top-0 left-0 w-full h-1/4 bg-gradient-to-b from-cloud" />
+        <div className="absolute bottom-0 left-0 w-full h-1/4 bg-gradient-to-t from-cloud" />
+      </figure>
+      <div className={`w-full mx-auto mt-0 relative z-10 text-white top-12`}>
+        <div
+          className="mt-0 mb-8 text-4xl max-w-2xl leading-tight mx-auto text-hotPink"
+          data-animation-id="video-text"
+        >
+          {props.children}
+        </div>
+      </div>
     </div>
-  </div>
-  )
-}
+  );
+};
 
-export default InterstitialCoverVideo
+export default InterstitialCoverVideo;

@@ -55,9 +55,9 @@ export default function Qeros() {
         imgClassName='md:w-[110%] '
         className='mt-40'
       >
-        <p className='flex align-top bg-cloud relative -left-[6.5rem] pl-8 pb-16 w-[125%]'>
+        <p className='flex align-top bg-cloud relative -left-[6.5rem] -top-8 p-8 pb-16 w-[150%]'>
         <span className={'inline-block w-1/5 text-[11em] leading-[0.66em] mr-6 ' + Franklin.className}>T</span>
-        <span className='inline  w-4/5'>he Q’eros people are known as the wisdom keepers of the Andes. Considered to be the “último ayllu inka,” or the last Incan community of Peru, the Q’eros strive to preserve and promote their indigenous ethnic and cultural identity.</span>
+        <span className='inline w-full'>he Q’eros people are known as the wisdom keepers of the Andes. Considered to be the <em>“último ayllu inka,”</em> or the last Incan community of Peru, the Q’eros strive to preserve and promote their indigenous ethnic and cultural identity.</span>
         </p>
       </CaptionedPhoto>
 

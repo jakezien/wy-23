@@ -43,7 +43,7 @@ const CaptionedPhoto: React.FC<CaptionedPhotoProps> = ({
     // parallaxProps.translateY = [-15, 15]
 
   return (
-    <div className={`md:flex mx-auto w-full md:px-16 my-40 h-[55%] ${props.className}`}>
+    <div className={`md:flex mx-auto w-full md:px-16 my-[28rem] h-[55%] bg-cloud ${props.className}`}>
       <div className="w-full overflow-hidden">
         {props.imgSrc &&
           <Parallax

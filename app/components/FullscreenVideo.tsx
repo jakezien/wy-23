@@ -7,15 +7,16 @@ import { useRef } from "react";
 interface Props {
   src: string
   className?: string
+  
 }
 
 
-const FullscreenVideo: React.FC<Props> = ({src, className}) => {
+const FullscreenVideo: React.FC<Props> = ({src, className, ...props}) => {
   let size = useWindowSize()
   let ref = useRef<HTMLVideoElement>(null)
 
   return (
-    <div className={"fullscreen-video bg-cloud " + className}>
+    <div className={"fullscreen-video bg-cloud " + className} {...props}>
       <CldVideoPlayer
         src={src}
         width={size.width}
