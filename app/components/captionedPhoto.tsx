@@ -46,7 +46,7 @@ const CaptionedPhoto: React.FC<CaptionedPhotoProps> = ({
       if (props.delayPhoto) {
         tl.current.fromTo(
           '[data-animation-id="caption-img"]',
-          { duration: 5.0, opacity: 0, ease: "easeOut" },
+          { duration: 2.0, opacity: 0, ease: "easeOutQuad" },
           { opacity: 1 },
           0
         );
@@ -67,9 +67,22 @@ const CaptionedPhoto: React.FC<CaptionedPhotoProps> = ({
 
   return (
     <div
-      className={`md:flex mx-auto w-full md:px-16 my-[28rem] h-[55%]  ${props.className}`}
+      className={`md:flex mx-auto w-full md:px-16 md:my-[28rem] md:h-[55%] overflow-hidden md:overflow-visible ${props.className}`}
       ref={containerRef}
     >
+      <div
+        data-animation-id="caption-text"
+        className={`
+          flex flex-col justify-top leading-snug px-2 py-8 md:px-0 md:py-0
+          ${!captionLeft ? "order-last md:pl-8 " : "md:pr-8"} 
+          ${props.captionClassName}
+        `}
+      >
+        <div className="md:max-w-xs my-0 mx-1  ">
+          {props.children ? props.children : <p>{props.caption}</p>}
+        </div>
+      </div>
+      
       <div className="w-full overflow-hidden">
         {props.imgSrc && (
           <div className="h-full ">
@@ -85,19 +98,6 @@ const CaptionedPhoto: React.FC<CaptionedPhotoProps> = ({
         )}
       </div>
 
-      <div
-        data-speed={200}
-        data-animation-id="caption-text"
-        className={`
-          flex flex-col justify-top leading-snug 
-          ${captionLeft ? "order-first md:pr-20 " : ""} 
-          ${props.captionClassName}
-        `}
-      >
-        <div className="max-w-xs my-0 mx-1 ">
-          {props.children ? props.children : <p>{props.caption}</p>}
-        </div>
-      </div>
     </div>
   );
 };

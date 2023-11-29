@@ -93,7 +93,7 @@ const InterstitialCoverVideo: React.FC<Props> = ({ ...props }) => {
       <div className={`w-full mx-auto mt-0 relative -z-10 text-white top-0`}>
         <div className="absolute top-0 left-0 w-full h-1/4 bg-gradient-to-b pt-40 from-cloud" />
         <div
-          className="mt-0 mb-8 text-4xl max-w-2xl leading-tight mx-auto text-hotPink"
+          className="mt-0 mb-8 text-3xl tracking-[-0.00525em] px-2 md:px-0 md:text-4xl max-w-2xl leading-tight mx-auto text-hotPink"
           data-animation-id="video-text"
         >
           {props.children}

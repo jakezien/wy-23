@@ -53,7 +53,7 @@ const CoverPhoto: React.FC<CoverPhotoProps> = (props) => {
     <div
       ref={containerRef}
       className={`${props.className ?? ""} 
-      w-full flex overflow-hidden relative
+      w-full flex overflow-hidden relative  
       ${props.fullHeight ? "h-screen" : "h-[90vh]"} 
     `}
     >

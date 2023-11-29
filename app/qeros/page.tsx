@@ -15,27 +15,19 @@ import PageTitle from "../components/pageTitle";
 import { Franklin } from "../components/localFonts";
 import FullscreenVideo from "../components/FullscreenVideo";
 
-import ColorChangingText from "../components/colorChangingText";
-import ParallaxProvider from "../components/ParallaxProvider";
-import Parallax from "../components/Parallax";
 import { ParallaxProps } from "react-scroll-parallax/dist/components/Parallax/types";
 
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "../../tailwind.config";
 import InterstitialCoverVideo from "../components/InterstitialCoverVideo";
 const twConfig = resolveConfig(tailwindConfig);
-let whiteColor = (twConfig.theme?.colors?.white as string) ?? "";
-let hotPinkColor = (twConfig.theme?.colors?.hotPink as string) ?? "";
 
 export default function Qeros() {
   const hParallaxProps: ParallaxProps = {};
 
   return (
     <>
-      <CoverPhoto
-        imgSrc={coverImage}
-        fixed
-      >
+      <CoverPhoto imgSrc={coverImage} fixed>
         <PageTitle title="Q’eros"></PageTitle>
         <p
           className={
@@ -50,19 +42,19 @@ export default function Qeros() {
         imgSrc={soniaImage}
         imgParallaxH={true}
         imgClassName="md:w-[110%] "
-        className="mt-40"
+        className="md:mt-32"
         delayPhoto={true}
       >
-        <p className="flex align-top bg-cloud relative -left-[6.5rem] -top-8 p-8 pb-16 w-[150%]">
+        <p className="flex align-top relative z-[1] md:bg-cloud md:-left-[6.5rem] md:-top-8 p-8 pb-16 w-full md:w-[150%]">
           <span
             className={
-              "inline-block w-1/5 text-[11em] leading-[0.66em] mr-6 " +
+              "block w-1/5 text-[11em] leading-[0.66em] mr-6 " +
               Franklin.className
             }
           >
             T
           </span>
-          <span className="inline w-full">
+          <span className="block w-4/5 md:w-full">
             he Q’eros people are known as the wisdom keepers of the Andes.
             Considered to be the <em>“último ayllu inka,”</em> or the last Incan
             community of Peru, the Q’eros strive to preserve and promote their
@@ -72,10 +64,9 @@ export default function Qeros() {
       </CaptionedPhoto>
 
       <CaptionedPhoto
-        
         captionLeft
         imgSrc={skywalkImage}
-        className="mb-0 bg-cloud"
+        className="md:mb-0 bg-cloud"
       >
         <p>
           Peru’s Ministry of Culture designates Q’eros as a “national living
@@ -96,7 +87,7 @@ export default function Qeros() {
       <CaptionedPhoto
         captionLeft
         imgSrc={threeMenImage}
-        className="mt-0 bg-cloud"
+        className="md:mt-0 bg-cloud"
       >
         <p>
           Worldview concepts of ayni, the importance of reciprocal sharing, and
@@ -105,7 +96,7 @@ export default function Qeros() {
         </p>
       </CaptionedPhoto>
 
-      <CaptionedPhoto imgSrc={sebImage} className="mb-0 bg-cloud">
+      <CaptionedPhoto imgSrc={sebImage} className="md:mb-0 bg-cloud">
         <p>
           Love, joy, perseverance, integrity, and contentment suffuse their
           daily lives.
@@ -113,7 +104,13 @@ export default function Qeros() {
       </CaptionedPhoto>
 
       <InterstitialCoverVideo src="WY/where_n7tl6r">
-        <h2>Where in the World </h2>
+        <h2
+          className={
+            "text-3xl mb-4 uppercase tracking-[0.2em] " + Franklin.className
+          }
+        >
+          Where in the World{" "}
+        </h2>
         <p>
           The remote villages of Q’eros are located 14,500 feet above sea level
           in the snow-capped Cordillera Vilcanota range, the highest mountain
@@ -125,7 +122,7 @@ export default function Qeros() {
       <CaptionedPhoto
         captionLeft
         imgSrc={valleyImage}
-        className="mt-0 bg-cloud "
+        className="md:mt-0 bg-cloud "
       >
         <p>
           Q’eros travel between three different ecosystems that span from 15,500
@@ -156,7 +153,7 @@ export default function Qeros() {
         text="Projects"
         next
         caption="See how we help"
-        className="-mt-40 mb-60"
+        className="mt-20 md:-mt-40 mb-60"
       />
     </>
   );
