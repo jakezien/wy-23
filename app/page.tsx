@@ -59,7 +59,7 @@ const Home: React.FC = () => {
         </section>
 
 
-        <section className="min-h-screen">
+        <section className="">
           <CaptionedPhoto imgSrc={expeditionsImage}>
           <CtaButton text='Expeditions' caption="Visit Q’eros" href="/expeditions" />
           <p className='ml-2 leading-snug'>
@@ -68,7 +68,7 @@ const Home: React.FC = () => {
           </CaptionedPhoto>
         </section>
         
-        <section className="min-h-screen">
+        <section className="">
           <CaptionedPhoto imgSrc={qerosImage}>
           <CtaButton text='Q’eros' caption="Who we support" href="/qeros" />
           <p className='ml-2 leading-snug'>
@@ -77,7 +77,7 @@ const Home: React.FC = () => {
           </CaptionedPhoto>
         </section>
 
-        <section className="min-h-screen">
+        <section className="">
           <CaptionedPhoto imgSrc={schoolsImage}>
           <CtaButton text='Schools' caption="Our education initiative" href="/schools" />
           <p className='ml-2 leading-snug'>

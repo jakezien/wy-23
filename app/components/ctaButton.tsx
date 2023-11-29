@@ -15,7 +15,7 @@ const CtaButton: React.FC<Props> = (props) => {
     <div className={`relative h-44 w-full max-w-xs mx-auto group ${props.className ?? ""}`}>
       <div>
         <div className="h-8">
-          {props.next && <span>Next: </span>}
+          {props.next && <span className="mr-1">Next:  </span>}
           <h4
             className={`inline uppercase tracking-[0.15em] ${Franklin.className}`}
           >
