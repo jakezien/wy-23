@@ -31,8 +31,8 @@ type Props = {
 };
 
 const InterstitialCoverVideo: React.FC<Props> = ({ ...props }) => {
+  
   let size = useWindowSize();
-
   const tl = useRef(gsap.timeline());
   const containerRef = useRef(null);
 
