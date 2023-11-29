@@ -30,10 +30,27 @@ const ProjectsSection: React.FC<PropsWithChildren<Props>> = ({ title, slug, vide
         },
       })
 
+      // pause
+      // start
+      // fade in
+      // fade out
+      // start
+      // pause
+
       tl.current.to(`[data-animation-id="video-${slug}"]`, {
         opacity: 1,
         duration: 1
       }, 0)
+
+      tl.current.call(() => {
+        let q = gsap.utils.selector(videoContainerRef)
+        const els = q(`[data-animation-id="video-${slug}"] * video`)
+        if (els.length > 0) {
+          let video = els[0] as HTMLVideoElement
+          video.play()
+        }
+      }, [], 0)
+
 
     }, videoContainerRef);
   }, [slug, videoContainerRef, containerRef]);

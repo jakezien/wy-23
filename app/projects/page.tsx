@@ -16,13 +16,13 @@ export default function Projects() {
       <div ref={videoContainerRef}>
       <div className="fixed top-0 left-0 h-full w-full -z-10 " >
         {/* BG */}
-        <FullscreenVideo className="w-full h-full absolute top-0 left-0 opacity-0" src="WY/schools_l9lb47" data-animation-id="video-schools"/>
-        <FullscreenVideo className="w-full h-full absolute top-0 left-0 opacity-0" src="WY/energy_da3pdc" data-animation-id="video-energy"/>
-        <FullscreenVideo className="w-full h-full absolute top-0 left-0 opacity-0" src="WY/food_bz2d7g" data-animation-id="video-food"/>
-        <FullscreenVideo className="w-full h-full absolute top-0 left-0 opacity-0" src="WY/culture_c8bioe" data-animation-id="video-culture"/>
-        <FullscreenVideo className="w-full h-full absolute top-0 left-0 opacity-0" src="WY/medicine_gjpuv0" data-animation-id="video-medicine"/>
-        <FullscreenVideo className="w-full h-full absolute top-0 left-0 opacity-0" src="WY/music_qmpm31" data-animation-id="video-music"/>
-        <FullscreenVideo className="w-full h-full absolute top-0 left-0 opacity-0" src="WY/weaving_klpa5q" data-animation-id="video-weaving"/>
+        <FullscreenVideo className="w-full h-full absolute top-0 left-0 opacity-0" paused src="WY/schools_l9lb47" data-animation-id="video-schools"/>
+        <FullscreenVideo className="w-full h-full absolute top-0 left-0 opacity-0" paused src="WY/energy_da3pdc" data-animation-id="video-energy"/>
+        <FullscreenVideo className="w-full h-full absolute top-0 left-0 opacity-0" paused src="WY/food_bz2d7g" data-animation-id="video-food"/>
+        <FullscreenVideo className="w-full h-full absolute top-0 left-0 opacity-0" paused src="WY/culture_c8bioe" data-animation-id="video-culture"/>
+        <FullscreenVideo className="w-full h-full absolute top-0 left-0 opacity-0" paused src="WY/medicine_gjpuv0" data-animation-id="video-medicine"/>
+        <FullscreenVideo className="w-full h-full absolute top-0 left-0 opacity-0" paused src="WY/music_qmpm31" data-animation-id="video-music"/>
+        <FullscreenVideo className="w-full h-full absolute top-0 left-0 opacity-0" paused src="WY/weaving_klpa5q" data-animation-id="video-weaving"/>
       </div>
 
       <CoverPhoto fixed className="">

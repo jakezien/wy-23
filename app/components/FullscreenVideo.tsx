@@ -7,11 +7,11 @@ import { useRef } from "react";
 interface Props {
   src: string
   className?: string
-  
+  paused?: boolean
 }
 
 
-const FullscreenVideo: React.FC<Props> = ({src, className, ...props}) => {
+const FullscreenVideo: React.FC<Props> = ({src, className, paused=false, ...props}) => {
   let size = useWindowSize()
   let ref = useRef<HTMLVideoElement>(null)
 
@@ -21,7 +21,7 @@ const FullscreenVideo: React.FC<Props> = ({src, className, ...props}) => {
         src={src}
         width={size.width}
         height={size.height}      
-        autoPlay="always"
+        autoPlay={paused ? "false" : "always"}
         loop={true}
         muted={true}
         controls={false}
