@@ -3,7 +3,7 @@ import Header from "./components/header"
 import Footer from "./components/footer"
 import { EB_Garamond } from 'next/font/google'
 
-const garamond = EB_Garamond({subsets: ['latin']})
+const garamond = EB_Garamond({subsets: ['latin'], style:['normal', 'italic']})
 
 export const metadata = {
   title: 'Willka Yachay',

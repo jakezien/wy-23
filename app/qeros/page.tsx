@@ -90,8 +90,8 @@ export default function Qeros() {
         className="md:mt-0 bg-cloud"
       >
         <p>
-          Worldview concepts of ayni, the importance of reciprocal sharing, and
-          animu, awareness of an animated essence in all things, shape their
+          Worldview concepts of <em>ayni</em>, the importance of reciprocal sharing,
+          and <em>animu</em>, awareness of an animated essence in all things, shape their
           interactions with each other and their environment.
         </p>
       </CaptionedPhoto>
@@ -153,7 +153,7 @@ export default function Qeros() {
         text="Schools"
         next
         caption="Our education initiative"
-        className="mt-20 md:-mt-40 mb-60"
+        className="mt-20 mb-20 md:-mt-40 md:mb-60"
       />
     </>
   );
