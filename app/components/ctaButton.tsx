@@ -12,7 +12,7 @@ interface Props {
 
 const CtaButton: React.FC<Props> = (props) => {
   return (
-    <div className={`relative h-44 w-full max-w-xs mx-auto group ${props.className ?? ""}`}>
+    <div className={`relative h-44 w-full max-w-2xl my-16 mx-auto group ${props.className ?? ""}`}>
       <div>
         <div className="h-8">
           {props.next && <em className="mr-1">Next:  </em>}
@@ -38,7 +38,7 @@ const CtaButton: React.FC<Props> = (props) => {
         </Link>
       </div>
 
-      <div className="absolute top-8 left-0 h-full w-full transition-all duration-300 overflow-hidden max-w-0 group-hover:max-w-full">
+      <div className="absolute top-8 left-0 h-full w-full w-8xl transition-all duration-300 overflow-hidden max-w-0 group-hover:max-w-full">
         <Link
           href={props.href}
           className={`${props.className} no-underline text-hotPink`}
