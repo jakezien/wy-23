@@ -117,7 +117,16 @@ const ProjectsSection: React.FC<PropsWithChildren<Props>> = ({ title, slug, vide
         }
       }, [], 4.0)
       
+
     }, videoContainerRef);
+      
+    return () => {
+      tl.current.scrollTrigger?.disable()
+      tl.current.clear
+      ctx.revert()
+      console.log("return from useeffect")
+    }
+
   }, [slug, videoContainerRef, containerRef]);
 
 
