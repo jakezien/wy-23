@@ -30,12 +30,10 @@ const Nav: React.FC<NavProps> = ({
         <li className={liClassName}>
           <Link href="/qeros">Q’eros</Link>
         </li>
-        
-        {/*
+
         <li className={liClassName}>
-          <Link href="/">Projects</Link>
+          <Link href="/projects">Projects</Link>
         </li>
-        */}
 
         <li className={liClassName}>
           <Link href="/schools">Schools</Link>

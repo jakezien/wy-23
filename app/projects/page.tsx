@@ -27,7 +27,7 @@ export default function Projects() {
 
       <CoverPhoto fixed className="">
         <PageTitle title="Projects" className="text-brown"></PageTitle>
-        <p className="text-brown">
+        <p className="text-brown text-center max-w-2xl mx-auto">
           Willka Yachay is helping Q’eros obtain the tools they need to sustain
           their culture and thrive in the modern world.
         </p>
@@ -150,8 +150,22 @@ export default function Projects() {
           security.
         </p>
         <CtaButton text="Visit our weaving shop" href="/shop"></CtaButton>
-        </ProjectsSection>
-        </div>
+      </ProjectsSection>
+        
+      <CtaButton
+        href="/schools"
+        text="Schools"
+        next
+        caption="Our education initiative"
+        className="mt-20 mb-20 md:-mt-40 md:mb-60 text-white"
+      />
+
+    </div>
+      
+
+
     </>
+
+    
   );
 }

@@ -26,6 +26,8 @@ const FullscreenVideo: React.FC<Props> = ({src, className, paused=false, ...prop
         muted={true}
         controls={false}
         videoRef={ref}
+        bigPlayButton={false}
+        preload="auto"
     />
     </div>
   )

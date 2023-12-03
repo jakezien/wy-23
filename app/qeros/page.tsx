@@ -149,10 +149,10 @@ export default function Qeros() {
       </CaptionedPhoto>
 
       <CtaButton
-        href="/schools"
-        text="Schools"
+        href="/projects"
+        text="Projects"
         next
-        caption="Our education initiative"
+        caption="See how we help"
         className="mt-20 mb-20 md:-mt-40 md:mb-60"
       />
     </>
