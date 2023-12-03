@@ -27,7 +27,7 @@ const ProjectsSection: React.FC<PropsWithChildren<Props>> = ({ title, slug, vide
         scrollTrigger: {
           trigger: containerRef.current,
           scrub: 0.25,
-          snap: [0.5]
+          // snap: [0.5]
           
         },
       })
@@ -62,24 +62,8 @@ const ProjectsSection: React.FC<PropsWithChildren<Props>> = ({ title, slug, vide
           let video = els[0] as HTMLVideoElement
           video.play()
         }
-      }, [], 0.01)
-      tl.current.call(() => {
-        let q = gsap.utils.selector(videoContainerRef)
-        const els = q(`[data-animation-id="video-${slug}"] * video`)
-        if (els.length > 0) {
-          let video = els[0] as HTMLVideoElement
-          video.pause()
-        }
-      }, [], 0.011)
+      }, [], 0.1)
       
-      tl.current.call(() => {
-        let q = gsap.utils.selector(videoContainerRef)
-        const els = q(`[data-animation-id="video-${slug}"] * video`)
-        if (els.length > 0) {
-          let video = els[0] as HTMLVideoElement
-          video.play()
-        }
-      }, [], 1)
       
       tl.current.to(`[data-animation-id="video-${slug}"]`, {
         opacity: 1,
@@ -93,11 +77,20 @@ const ProjectsSection: React.FC<PropsWithChildren<Props>> = ({ title, slug, vide
         duration: 1
       }, 2)
 
+      tl.current.to(`[data-animation-id="video-${slug}"]`, {
+        filter: "blur(64px)",
+        scale: 1.5,
+        duration: 1
+      }, 1)
+
+      tl.current.to(`[data-animation-id="section-title-${slug}"]`, {y:size.height*1.5, duration: 3}, 1)
 
       tl.current.to(`[data-animation-id="text-${slug}"]`, {
         opacity: 0,
         duration: 1
       }, 3)
+
+
 
       tl.current.call(() => {
         let q = gsap.utils.selector(videoContainerRef)
@@ -127,18 +120,24 @@ const ProjectsSection: React.FC<PropsWithChildren<Props>> = ({ title, slug, vide
       console.log("return from useeffect")
     }
 
-  }, [slug, videoContainerRef, containerRef]);
+  }, [slug, size.height, videoContainerRef, containerRef]);
 
 
 
   return (
     <section
-      className="h-full min-h-screen w-full my-40 py-24 px-24 flex flex-col justify-between text-white"
+      className="h-full min-h-screen w-full my-40 py-24 px-4 md:px-24 flex flex-col justify-between text-white"
       ref={containerRef}
       data-animation-id={`text-${slug}`}
     >
-      <h2 className={`${Franklin.className} + text-4xl uppercase tracking-[0.1em] mt-16`}>{title}</h2>
-      <div>
+      <div className="h-full mb-[50rem] text-center">
+        <h2 className={`${Franklin.className} + text-4xl uppercase tracking-[0.1em] mt-16`}
+        data-animation-id={`section-title-${slug}`}
+      >
+          {title}
+        </h2>
+      </div>
+      <div className="h-full min-h-screen">
         {children}
       </div>
     </section>
