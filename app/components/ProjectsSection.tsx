@@ -78,12 +78,15 @@ const ProjectsSection: React.FC<PropsWithChildren<Props>> = ({ title, slug, vide
       }, 2)
 
       tl.current.to(`[data-animation-id="video-${slug}"]`, {
-        filter: "blur(64px)",
-        scale: 1.5,
+        filter: "blur(80px)",
         duration: 1
       }, 1)
 
-      tl.current.to(`[data-animation-id="section-title-${slug}"]`, {y:size.height*1.5, duration: 3}, 1)
+      tl.current.to(`[data-animation-id="section-title-${slug}"]`, {
+        y: size.height * 1,
+        duration: 3,
+        ease: "easeInOut"
+      }, 1)
 
       tl.current.to(`[data-animation-id="text-${slug}"]`, {
         opacity: 0,
