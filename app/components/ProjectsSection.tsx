@@ -26,7 +26,7 @@ const ProjectsSection: React.FC<PropsWithChildren<Props>> = ({ title, slug, vide
         paused: true,
         scrollTrigger: {
           trigger: containerRef.current,
-          scrub: 0.25,
+          scrub: 0.5,
           // snap: [0.5]
           
         },
@@ -43,8 +43,6 @@ const ProjectsSection: React.FC<PropsWithChildren<Props>> = ({ title, slug, vide
       // fade out
       // start
       // pause
-
-      
       
       tl.current.call(() => {
         let q = gsap.utils.selector(videoContainerRef)
@@ -71,28 +69,19 @@ const ProjectsSection: React.FC<PropsWithChildren<Props>> = ({ title, slug, vide
       }, 0)
 
 
-
-
-      tl.current.to("*", {
-        duration: 1
-      }, 2) 
-
-
       tl.current.to(`[data-animation-id="video-${slug}"] .scrim`, {
         backdropFilter: "blur(80px)",
+        background: "rgba(0,0,0,0.2)",
         duration: 1
-      }, 1)
+      }, 1.5)
 
-      tl.current.to(`[data-animation-id="section-title-${slug}"]`, {
-        y: size.height * 1,
-        duration: 3,
-        ease: "easeInOut"
-      }, 1)
+      tl.current.from(`[data-animation-id="section-title-${slug}"]`, {
+        y: "-90vh",
+        duration: 2,
+        ease: "none"
+      }, 0)
 
-      tl.current.to(`[data-animation-id="text-${slug}"]`, {
-        opacity: 0,
-        duration: 1
-      }, 3)
+
 
 
 
@@ -130,14 +119,14 @@ const ProjectsSection: React.FC<PropsWithChildren<Props>> = ({ title, slug, vide
 
   return (
     <section
-      className="h-full min-h-screen w-full my-40 py-24 px-4 md:px-24 flex flex-col justify-between text-white"
+      className="h-full min-h-screen w-full my-40 pb-24 px-4 md:px-24 flex flex-col justify-between text-white"
       ref={containerRef}
       data-animation-id={`text-${slug}`}
     >
-      <div className="h-full mb-[50rem] text-center">
-        <h2 className={`${Franklin.className} + text-4xl uppercase tracking-[0.1em] mt-16`}
-        data-animation-id={`section-title-${slug}`}
-      >
+      <div className="min-h-screen mb-8 text-left flex flex-col justify-end  ">
+        <h2 className={`${Franklin.className} + text-5xl md:text-6xl uppercase tracking-[0.1em] mt-0 w-3/4`}
+          data-animation-id={`section-title-${slug}`}
+        >
           {title}
         </h2>
       </div>
