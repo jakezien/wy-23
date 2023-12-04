@@ -75,10 +75,11 @@ const ProjectsSection: React.FC<PropsWithChildren<Props>> = ({ title, slug, vide
 
       tl.current.to("*", {
         duration: 1
-      }, 2)
+      }, 2) 
 
-      tl.current.to(`[data-animation-id="video-${slug}"]`, {
-        filter: "blur(80px)",
+
+      tl.current.to(`[data-animation-id="video-${slug}"] .scrim`, {
+        backdropFilter: "blur(80px)",
         duration: 1
       }, 1)
 

@@ -16,7 +16,7 @@ const FullscreenVideo: React.FC<Props> = ({src, className, paused=false, ...prop
   let ref = useRef<HTMLVideoElement>(null)
 
   return (
-    <div className={"fullscreen-video bg-cloud " + className} {...props}>
+    <div className={"fullscreen-video bg-cloud  " + className} {...props}>
       <CldVideoPlayer
         src={src}
         width={size.width}
@@ -28,7 +28,8 @@ const FullscreenVideo: React.FC<Props> = ({src, className, paused=false, ...prop
         videoRef={ref}
         bigPlayButton={false}
         preload="auto"
-    />
+      />
+      <div className="scrim absolute top-0 left-0 w-full h-full bg-white bg-opacity-10 "/>
     </div>
   )
 }
