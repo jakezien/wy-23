@@ -32,7 +32,7 @@ const Home: React.FC = () => {
           fixed 
           bg={
             <FullscreenVideo
-              src='WY/home_iluhp4'
+              src='WY/home'
             />
           }
           parallax={{
