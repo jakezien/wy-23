@@ -49,7 +49,7 @@ const Nav: React.FC<NavProps> = ({
         */}
 
         <li className={liClassName + " " + lastItemClassName}>
-          <Link href="/" className="block px-3 py-1">Donate</Link>
+          <Link href="/?donate" className="block px-3 py-1">Donate</Link>
         </li>
       </ul>
     </nav>

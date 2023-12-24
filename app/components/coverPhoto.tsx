@@ -1,7 +1,7 @@
 "use client";
 import Image, { StaticImageData } from "next/image";
 import useWindowSize from "../hooks/useWindowSize";
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
@@ -22,7 +22,7 @@ const CoverPhoto: React.FC<CoverPhotoProps> = (props) => {
   const tl = useRef(gsap.timeline());
   const containerRef = useRef(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     let ctx = gsap.context(() => {
       tl.current = gsap.timeline({
@@ -45,6 +45,27 @@ const CoverPhoto: React.FC<CoverPhotoProps> = (props) => {
             y: `+=${size.height * 0.75}`,
             ease: "sine.easeOut",
           });
+        
+          tl.current.call(() => {
+            let q = gsap.utils.selector(containerRef)
+            const els = q(`[data-animation-id="cover-bg"] * video`)
+            if (els.length > 0) {
+              let video = els[0] as HTMLVideoElement
+              video.play()
+              console.log("play " + els)
+            }
+          }, [], 1.9)
+
+        tl.current.call(() => {
+            let q = gsap.utils.selector(containerRef)
+            const els = q(`[data-animation-id="cover-bg"] * video`)
+            if (els.length > 0) {
+              let video = els[0] as HTMLVideoElement
+              video.pause()
+              console.log("pause " + els)
+            }
+          }, [], 2)
+    
       }
     }, containerRef);
   }, [size.height, containerRef, props.fixed]);

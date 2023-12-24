@@ -9,6 +9,7 @@ import ColorChangingText from './components/colorChangingText'
 import coverImage from '../public/images/home/coverFrame@2x.jpg'
 import qerosImage from './home/cover@2x.jpg'
 import expeditionsImage from './home/expeditions.jpg'
+import projectsImage from './home/projects@2x.jpg'
 import schoolsImage from './home/schools@2x.jpg'
 
 import { GaramondDisplay } from './components/localFonts'
@@ -32,12 +33,12 @@ const Home: React.FC = () => {
           fixed 
           bg={
             <FullscreenVideo
-              src='WY/home_iluhp4'
+              src='WY/home'
             />
           }
         >
           <Logotype horizontal className="fill-cloud block w-[70%] md:w-[55%] mx-auto"/>
-          <hr className="h-[1.5px] bg-cloud my-8 md:my-16 w-2/3 mx-auto"/>
+          <hr className="h-[1.5px] bg-cloud my-8 md:my-16 w-2/3 mx-auto border-none"/>
           <h2 className={"text-center text-3xl " + GaramondDisplay.className}>Empowering the<span className='hidden md:inline'> </span><br className='md:hidden'/>Q’eros&nbsp;Nation of&nbsp;Peru</h2>
           <div className="w-full h-50 mt-6"></div>
         </CoverPhoto>
@@ -61,7 +62,7 @@ const Home: React.FC = () => {
 
         <section className="">
           <CaptionedPhoto imgSrc={expeditionsImage}>
-          <CtaButton text='Expeditions' caption="Visit Q’eros" href="/expeditions" />
+          <CtaButton text='Expeditions' caption="Visit Q’eros" href="/expeditions" className='mb-0' />
           <p className='ml-2 leading-snug'>
             Willka Yachay would love to collaborate with you in meeting the goals of contributing to and learning from the&nbsp;Q’eros.
           </p>
@@ -70,7 +71,7 @@ const Home: React.FC = () => {
         
         <section className="">
           <CaptionedPhoto imgSrc={qerosImage}>
-          <CtaButton text='Q’eros' caption="Who we support" href="/qeros" />
+          <CtaButton text='Q’eros' caption="Who we support" href="/qeros" className='mb-0' />
           <p className='ml-2 leading-snug'>
             Considered Peru’s last Inkan community, the Q’eros people are the wisdom keepers of the&nbsp;Andes.
           </p>
@@ -78,8 +79,17 @@ const Home: React.FC = () => {
         </section>
 
         <section className="">
+          <CaptionedPhoto imgSrc={projectsImage}>
+          <CtaButton text='Projects' caption="What we do" href="/projects" className='mb-0' />
+          <p className='ml-2 leading-snug'>
+            Together with the Q’eros, we build and sustain schools and implement solar programs, a weaving cooperative, music and cultural preservation projects; provide food and water security, a medical center, mother and infant care, and lead learning expeditions to Q’eros.
+          </p>
+          </CaptionedPhoto>
+        </section>
+
+        <section className="">
           <CaptionedPhoto imgSrc={schoolsImage}>
-          <CtaButton text='Schools' caption="Our education initiative" href="/schools" />
+          <CtaButton text='Schools' caption="Our education initiative" href="/schools" className='mb-0' />
           <p className='ml-2 leading-snug'>
             Willka Yachay builds schools high in the Andes. We collaborate with Q’ero parents and elders on construction, administration and curriculum development. We employ culturally sensitive teachers and provide all supplies, nutritious food and national and international field trips.
           </p>

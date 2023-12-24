@@ -1,4 +1,5 @@
 'use client'
+import React from "react"
 import { PropsWithChildren, Ref, useEffect, useRef } from "react"
 import { Franklin } from "./localFonts"
 import useWindowSize from "../hooks/useWindowSize"

@@ -3,7 +3,7 @@ import CoverPhoto from "../components/coverPhoto";
 import CtaButton from "../components/ctaButton";
 import PageTitle from "../components/pageTitle";
 import { Franklin } from "../components/localFonts";
-import ProjectsSection from "../components/ProjectsSection";
+import ProjectsSection from "../components/ProjectsSection"
 import FullscreenVideo from "../components/FullscreenVideo";
 import { useRef } from "react";
 
@@ -21,12 +21,12 @@ export default function Projects() {
             src="WY/schools_l9lb47"
             data-animation-id="video-schools"
           />
-          <FullscreenVideo
+          {/* <FullscreenVideo
             className="w-full h-full absolute top-0 left-0 opacity-0"
             paused
             src="WY/energy_da3pdc"
             data-animation-id="video-energy"
-          />
+          /> */}
           <FullscreenVideo
             className="w-full h-full absolute top-0 left-0 opacity-0"
             paused
@@ -36,7 +36,7 @@ export default function Projects() {
           <FullscreenVideo
             className="w-full h-full absolute top-0 left-0 opacity-0"
             paused
-            src="WY/culture_c8bioe"
+            src="WY/culture"
             data-animation-id="video-culture"
           />
           <FullscreenVideo
@@ -48,7 +48,7 @@ export default function Projects() {
           <FullscreenVideo
             className="w-full h-full absolute top-0 left-0 opacity-0"
             paused
-            src="WY/medicine_gjpuv0"
+            src="WY/medicine"
             data-animation-id="video-medicine"
           />
           <FullscreenVideo
@@ -88,7 +88,7 @@ export default function Projects() {
           <CtaButton text="Learn about our schools" href="/schools" />
         </ProjectsSection>
 
-        <ProjectsSection
+        {/* <ProjectsSection
           title="Alternative Energy"
           slug="energy"
           videoContainerRef={videoContainerRef}
@@ -112,7 +112,7 @@ export default function Projects() {
             weavings. We sell these weavings and reinvest the returns in our
             schools and development projects.
           </p>
-        </ProjectsSection>
+        </ProjectsSection> */}
 
         <ProjectsSection
           title="Food & Water Security"
