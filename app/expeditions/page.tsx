@@ -3,7 +3,7 @@ import ExpeditionsCover from './ExpeditionsCover'
 import { Franklin } from '../components/localFonts'
 import CtaButton from '../components/ctaButton'
 
-export default function Home() {
+export default function Expeditions() {
   let h2ClassName = `text-3xl uppercase tracking-[0.1em] + ${Franklin.className} `
 
   return (
@@ -17,7 +17,7 @@ export default function Home() {
           </div>
 
           <div className="mb-4 text-xl -tracking-[0.01em]">
-            <p className="mb-2">Few have the opportunity to visit Q’eros. Those who are invited to meet them and travel to their out-of-this world beautiful home are changed forever. Willka Yachay would love to collaborate with you in meeting the goals of contributing to and learning from the Q’eros.</p>
+            <p className="mb-2">Few have the opportunity to visit Q’eros. Those who are invited to meet them and travel to their out-of-this world beautiful Expeditions are changed forever. Willka Yachay would love to collaborate with you in meeting the goals of contributing to and learning from the Q’eros.</p>
             <p>Our team will make expedition arrangements, coordinate with the Q’eros community and accompany you on your visit to Q’eros. We also offer trip planning services in Cusco, the Sacred Valley and visits to sacred sites with wonderful, wise guides. All proceeds support Willka Yachay schools and programs in Q’eros.</p>
           </div>
           

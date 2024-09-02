@@ -8,7 +8,7 @@ import Link from "next/link"
 const Header = () => {
 
   const [showMobileMenu, setShowMobileMenu] = useState(false)
-  const [showDonate, setShowDonate] = useState(false)
+  // const [showDonate, setShowDonate] = useState(false)
 
   function toggleMobileMenu() {
     setShowMobileMenu(!showMobileMenu)

@@ -28,7 +28,7 @@ export default function RootLayout({
         <main className='w-full h-full'>
           <Header />
           {children}
-          { props && props.searchParams?.donate && <DonateModal/> } 
+          {/* { props && props.searchParams?.donate && <DonateModal/> }  */}
           <Footer/>
         </main>
       </body>

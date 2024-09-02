@@ -30,7 +30,7 @@ const ExpeditionsCover = () => {
       tl.current.from('[data-animation-id="subtitle"]', {y:-0.0125 * size.height, ease:"power0.easeIn", duration:5}, 0);
       tl.current.from('[data-animation-id="tents"]', { y:0.0125 * size.height, ease: "power0.easeIn", duration: 5 }, 0);
     }, containerRef);
-  }, [size.height, containerRef]);
+  }, [size.width, size.height, containerRef]);
 
 
   return (

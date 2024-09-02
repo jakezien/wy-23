@@ -43,13 +43,13 @@ const Nav: React.FC<NavProps> = ({
         <li className={liClassName}>
           <Link href="/">Journal</Link>
         </li>
+        */}
         <li className={liClassName}>
           <Link href="/about">About</Link>
         </li>
-        */}
 
         <li className={liClassName + " " + lastItemClassName}>
-          <Link href="/?donate" className="block px-3 py-1">Donate</Link>
+          <Link href="/donate" className="block px-3 py-1">Donate</Link>
         </li>
       </ul>
     </nav>
