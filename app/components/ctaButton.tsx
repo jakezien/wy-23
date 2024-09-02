@@ -41,7 +41,7 @@ const CtaButton: React.FC<Props> = (props) => {
       <div className="absolute top-8 left-0 h-full w-full w-8xl transition-all duration-300 overflow-hidden max-w-0 group-hover:max-w-full">
         <Link
           href={props.href}
-          className={`${props.className} no-underline text-hotPink`}
+          className={`${props.className} no-underline text-hotPink absolute w-screen`}
         >
           <h1
             className={
