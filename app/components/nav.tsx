@@ -1,21 +1,23 @@
-import Link from "next/link"
-import Logotype from "./logotype"
+import Link from "next/link";
+import Logotype from "./logotype";
+import { useDonateModal } from "./DonateProvider";
 
 type NavProps = {
-  className?: string,
-  ulClassName?: string
-  liClassName?: string
-  firstItemClassName?: string
-  lastItemClassName?: string
-}
+  className?: string;
+  ulClassName?: string;
+  liClassName?: string;
+  firstItemClassName?: string;
+  lastItemClassName?: string;
+};
 
 const Nav: React.FC<NavProps> = ({
   className = "",
   ulClassName = "",
   liClassName = "list-none",
   firstItemClassName = "",
-  lastItemClassName = ""
-}) => { 
+  lastItemClassName = "",
+}) => {
+  const { showDonateModal } = useDonateModal();
   return (
     <nav className={className}>
       <ul className={ulClassName + " list-none"}>
@@ -49,11 +51,16 @@ const Nav: React.FC<NavProps> = ({
         </li>
 
         <li className={liClassName + " " + lastItemClassName}>
-          <Link href="/donate" className="block px-3 py-1">Donate</Link>
+          <button
+            onClick={showDonateModal}
+            className="block px-3 py-1 cursor-pointer"
+          >
+            Donate
+          </button>
         </li>
       </ul>
     </nav>
-  )
-}
+  );
+};
 
-export default Nav
+export default Nav;

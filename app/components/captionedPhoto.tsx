@@ -5,6 +5,7 @@ import useWindowSize from "../hooks/useWindowSize";
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { Parallax } from "react-scroll-parallax";
 
 type CaptionedPhotoProps = {
   imgSrc?: string | StaticImageData;
@@ -55,13 +56,11 @@ const CaptionedPhoto: React.FC<CaptionedPhotoProps> = ({
       if (props.imgParallaxH) {
         tl.current.fromTo(
           '[data-animation-id="caption-img"]',
-          { duration: 10.0, objectPosition:"35% 50%" },
-          { objectPosition: "45% 50%" },          
+          { duration: 10.0, objectPosition: "35% 50%" },
+          { objectPosition: "45% 50%" },
           0
         );
-
       }
-
     }, containerRef);
   }, [containerRef, props.imgParallaxH, props.delayPhoto]);
 
@@ -70,34 +69,37 @@ const CaptionedPhoto: React.FC<CaptionedPhotoProps> = ({
       className={`md:flex mx-auto w-full md:px-16 md:my-[28rem] md:h-[55%] overflow-hidden md:overflow-visible ${props.className}`}
       ref={containerRef}
     >
-      <div
-        data-animation-id="caption-text"
-        className={`
-          flex flex-col justify-top leading-snug px-2 py-8 md:px-0 md:py-0
-          ${!captionLeft ? "order-last md:pl-8 " : "md:pr-8"} 
-          ${props.captionClassName}
-        `}
-      >
-        <div className="md:max-w-xs my-0 mx-1  ">
-          {props.children ? props.children : <p>{props.caption}</p>}
-        </div>
-      </div>
-      
-      <div className="w-full overflow-hidden">
-        {props.imgSrc && (
-          <div className="h-full ">
-            <Image
-              data-animation-id="caption-img"
-              src={props.imgSrc}
-              alt={props.imgAlt ?? ""}
-              width={1200}
-              height={1200}
-              className={"w-full h-full object-cover " + props.imgClassName}
-            />
+      <Parallax speed={-15}>
+        <div
+          data-animation-id="caption-text"
+          className={`
+            flex flex-col justify-top leading-snug px-2 py-8 md:px-0 md:py-0
+            ${!captionLeft ? "order-last md:pl-8 " : "md:pr-8"} 
+            ${props.captionClassName}
+          `}
+        >
+          <div className="md:max-w-xs my-0 mx-1  ">
+            {props.children ? props.children : <p>{props.caption}</p>}
           </div>
-        )}
-      </div>
+        </div>
+      </Parallax>
 
+      <Parallax speed={30}>
+        <div className="w-full overflow-hidden">
+          {props.imgSrc && (
+            <div className="h-full ">
+              <Image
+                data-animation-id="caption-img"
+                src={props.imgSrc}
+                alt={props.imgAlt ?? ""}
+                width={1200}
+                height={1200}
+                className={"w-full h-full object-cover " + props.imgClassName}
+              />
+            </div>
+          )}
+        </div>
+      </Parallax>
     </div>
   );
 };

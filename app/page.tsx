@@ -1,110 +1,135 @@
-import Image from 'next/image'
-import Logotype from './components/logotype'
-import CoverPhoto from './components/coverPhoto'
-import CaptionedPhoto from './components/captionedPhoto'
-import CtaButton from './components/ctaButton'
-import ParallaxProvider from './components/ParallaxProvider'
-import ColorChangingText from './components/colorChangingText'
+import Image from "next/image";
+import Logotype from "./components/logotype";
+import CoverPhoto from "./components/coverPhoto";
+import CaptionedPhoto from "./components/captionedPhoto";
+import CtaButton from "./components/ctaButton";
+import ParallaxProvider from "./components/ParallaxProvider";
+import ColorChangingText from "./components/colorChangingText";
 
-import coverImage from '../public/images/home/coverFrame@2x.jpg'
-import qerosImage from './home/cover@2x.jpg'
-import expeditionsImage from './home/expeditions.jpg'
-import projectsImage from './home/projects@2x.jpg'
-import schoolsImage from './home/schools@2x.jpg'
+import coverImage from "../public/images/home/coverFrame@2x.jpg";
+import qerosImage from "./home/cover@2x.jpg";
+import expeditionsImage from "./home/expeditions.jpg";
+import projectsImage from "./home/projects@2x.jpg";
+import schoolsImage from "./home/schools@2x.jpg";
 
-import { GaramondDisplay } from './components/localFonts'
-import FullscreenVideo from './components/FullscreenVideo'
-import useWindowSize from './hooks/useWindowSize'
+import { GaramondDisplay } from "./components/localFonts";
+import FullscreenVideo from "./components/FullscreenVideo";
+import useWindowSize from "./hooks/useWindowSize";
 
-import resolveConfig from 'tailwindcss/resolveConfig'
-import tailwindConfig from '../tailwind.config'
-const twConfig = resolveConfig(tailwindConfig)
-let whiteColor = twConfig.theme?.colors?.white as string ?? ""
-let hotPinkColor = twConfig.theme?.colors?.hotPink as string ?? ""
+import resolveConfig from "tailwindcss/resolveConfig";
+import tailwindConfig from "../tailwind.config";
+const twConfig = resolveConfig(tailwindConfig);
+let whiteColor = (twConfig.theme?.colors?.white as string) ?? "";
+let hotPinkColor = (twConfig.theme?.colors?.hotPink as string) ?? "";
 
 const Home: React.FC = () => {
-
-
-
   return (
-    <>
+    <ParallaxProvider>
       <section className="min-h-screen mb-[30vh]">
-        <CoverPhoto
-          fixed 
-          bg={
-            <FullscreenVideo
-              src='WY/home'
-            />
-          }
-        >
-          <Logotype horizontal className="fill-cloud block w-[70%] md:w-[55%] mx-auto"/>
-          <hr className="h-[1.5px] bg-cloud my-8 md:my-16 w-2/3 mx-auto border-none"/>
-          <h2 className={"text-center text-3xl " + GaramondDisplay.className}>Empowering the<span className='hidden md:inline'> </span><br className='md:hidden'/>Q’eros&nbsp;Nation of&nbsp;Peru</h2>
+        <CoverPhoto fixed bg={<FullscreenVideo src="WY/home" />}>
+          <Logotype
+            horizontal
+            className="fill-cloud block w-[70%] md:w-[55%] mx-auto"
+          />
+          <hr className="h-[1.5px] bg-cloud my-8 md:my-16 w-2/3 mx-auto border-none" />
+          <h2 className={"text-center text-3xl " + GaramondDisplay.className}>
+            Empowering the<span className="hidden md:inline"> </span>
+            <br className="md:hidden" />
+            Q’eros&nbsp;Nation of&nbsp;Peru
+          </h2>
           <div className="w-full h-50 mt-6"></div>
         </CoverPhoto>
-        
 
-        <section className='-mt-[20rem] text-2xl'>
-          <div className='px-6 max-w-prose mx-auto'>
-            <ParallaxProvider >
-              <ColorChangingText colors={[whiteColor, hotPinkColor]} className=' px-6'>
+        <section className="-mt-[20rem] text-2xl">
+          <div className="px-6 max-w-prose mx-auto">
+            <ParallaxProvider>
+              <ColorChangingText
+                colors={[whiteColor, hotPinkColor]}
+                className=" px-6"
+              >
                 <p className="mt-80 mb-8">
-                  Willka Yachay is a nonprofit organization dedicated to helping indigenous communities thrive in the modern world.
+                  Willka Yachay is a nonprofit organization dedicated to helping
+                  indigenous communities thrive in the modern world.
                 </p>
                 <p>
-                  We are empowering the next generation of the indigenous Q’eros Nation of Peru to become leaders who elevate their standard of living, guide their community toward sustainable modernity and revitalize their cultural&nbsp;identity.
+                  We are empowering the next generation of the indigenous Q’eros
+                  Nation of Peru to become leaders who elevate their standard of
+                  living, guide their community toward sustainable modernity and
+                  revitalize their cultural&nbsp;identity.
                 </p>
               </ColorChangingText>
             </ParallaxProvider>
           </div>
         </section>
 
-
         <section className="">
           <CaptionedPhoto imgSrc={expeditionsImage}>
-          <CtaButton text='Expeditions' caption="Visit Q’eros" href="/expeditions" className='mb-0' />
-          <p className='ml-2 leading-snug'>
-            Willka Yachay would love to collaborate with you in meeting the goals of contributing to and learning from the&nbsp;Q’eros.
-          </p>
+            <CtaButton
+              text="Expeditions"
+              caption="Visit Q’eros"
+              href="/expeditions"
+              className="mb-0"
+            />
+            <p className="ml-2 leading-snug">
+              Willka Yachay would love to collaborate with you in meeting the
+              goals of contributing to and learning from the&nbsp;Q’eros.
+            </p>
           </CaptionedPhoto>
         </section>
-        
+
         <section className="">
           <CaptionedPhoto imgSrc={qerosImage}>
-          <CtaButton text='Q’eros' caption="Who we support" href="/qeros" className='mb-0' />
-          <p className='ml-2 leading-snug'>
-            Considered Peru’s last Inkan community, the Q’eros people are the wisdom keepers of the&nbsp;Andes.
-          </p>
+            <CtaButton
+              text="Q’eros"
+              caption="Who we support"
+              href="/qeros"
+              className="mb-0"
+            />
+            <p className="ml-2 leading-snug">
+              Considered Peru’s last Inkan community, the Q’eros people are the
+              wisdom keepers of the&nbsp;Andes.
+            </p>
           </CaptionedPhoto>
         </section>
 
         <section className="">
           <CaptionedPhoto imgSrc={projectsImage}>
-          <CtaButton text='Projects' caption="What we do" href="/projects" className='mb-0' />
-          <p className='ml-2 leading-snug'>
-            Together with the Q’eros, we build and sustain schools and implement solar programs, a weaving cooperative, music and cultural preservation projects; provide food and water security, a medical center, mother and infant care, and lead learning expeditions to Q’eros.
-          </p>
+            <CtaButton
+              text="Projects"
+              caption="What we do"
+              href="/projects"
+              className="mb-0"
+            />
+            <p className="ml-2 leading-snug">
+              Together with the Q’eros, we build and sustain schools and
+              implement solar programs, a weaving cooperative, music and
+              cultural preservation projects; provide food and water security, a
+              medical center, mother and infant care, and lead learning
+              expeditions to Q’eros.
+            </p>
           </CaptionedPhoto>
         </section>
 
         <section className="">
           <CaptionedPhoto imgSrc={schoolsImage}>
-          <CtaButton text='Schools' caption="Our education initiative" href="/schools" className='mb-0' />
-          <p className='ml-2 leading-snug'>
-            Willka Yachay builds schools high in the Andes. We collaborate with Q’ero parents and elders on construction, administration and curriculum development. We employ culturally sensitive teachers and provide all supplies, nutritious food and national and international field trips.
-          </p>
+            <CtaButton
+              text="Schools"
+              caption="Our education initiative"
+              href="/schools"
+              className="mb-0"
+            />
+            <p className="ml-2 leading-snug">
+              Willka Yachay builds schools high in the Andes. We collaborate
+              with Q’ero parents and elders on construction, administration and
+              curriculum development. We employ culturally sensitive teachers
+              and provide all supplies, nutritious food and national and
+              international field trips.
+            </p>
           </CaptionedPhoto>
         </section>
-        
-
-        
-
       </section>
+    </ParallaxProvider>
+  );
+};
 
-
-
-    </>
-  )
-}
-
-export default Home
+export default Home;

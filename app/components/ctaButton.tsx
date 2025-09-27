@@ -1,6 +1,8 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 import { Franklin, GaramondDisplay } from "./localFonts";
+import { Parallax } from "react-scroll-parallax";
 
 interface Props {
   href: string;
@@ -12,10 +14,15 @@ interface Props {
 
 const CtaButton: React.FC<Props> = (props) => {
   return (
-    <div className={`relative h-44 w-full max-w-2xl my-16 mx-auto group ${props.className ?? ""}`}>
+    // <Parallax speed={-15}>
+    <div
+      className={`relative h-44 w-full max-w-2xl my-16 mx-auto group ${
+        props.className ?? ""
+      }`}
+    >
       <div>
         <div className="h-8">
-          {props.next && <em className="mr-1">Next:  </em>}
+          {props.next && <em className="mr-1">Next: </em>}
           <h4
             className={`inline uppercase tracking-[0.15em] ${Franklin.className}`}
           >
@@ -54,6 +61,7 @@ const CtaButton: React.FC<Props> = (props) => {
         </Link>
       </div>
     </div>
+    // </Parallax>
   );
 };
 
