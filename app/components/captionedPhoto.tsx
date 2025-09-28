@@ -69,7 +69,7 @@ const CaptionedPhoto: React.FC<CaptionedPhotoProps> = ({
       className={`md:flex mx-auto w-full md:px-16 md:my-[28rem] md:h-[55%] overflow-hidden md:overflow-visible ${props.className}`}
       ref={containerRef}
     >
-      <Parallax speed={-15}>
+      <Parallax speed={-15} className="md:w-[30%] w-full">
         <div
           data-animation-id="caption-text"
           className={`
@@ -84,7 +84,7 @@ const CaptionedPhoto: React.FC<CaptionedPhotoProps> = ({
         </div>
       </Parallax>
 
-      <Parallax speed={30}>
+      <Parallax speed={50} className="md:w-[70%] w-full">
         <div className="w-full overflow-hidden">
           {props.imgSrc && (
             <div className="h-full ">
@@ -92,8 +92,8 @@ const CaptionedPhoto: React.FC<CaptionedPhotoProps> = ({
                 data-animation-id="caption-img"
                 src={props.imgSrc}
                 alt={props.imgAlt ?? ""}
-                width={1200}
-                height={1200}
+                // width={1200}
+                // height={1200}
                 className={"w-full h-full object-cover " + props.imgClassName}
               />
             </div>
