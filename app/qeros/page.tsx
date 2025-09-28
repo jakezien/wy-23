@@ -15,7 +15,7 @@ import PageTitle from "../components/pageTitle";
 import { Franklin } from "../components/localFonts";
 import FullscreenVideo from "../components/FullscreenVideo";
 
-import { ParallaxProps } from "react-scroll-parallax/dist/components/Parallax/types";
+import { ParallaxProps } from "react-scroll-parallax";
 
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "../../tailwind.config";
@@ -90,9 +90,10 @@ export default function Qeros() {
         className="md:mt-0 bg-cloud"
       >
         <p>
-          Worldview concepts of <em>ayni</em>, the importance of reciprocal sharing,
-          and <em>animu</em>, awareness of an animated essence in all things, shape their
-          interactions with each other and their environment.
+          Worldview concepts of <em>ayni</em>, the importance of reciprocal
+          sharing, and <em>animu</em>, awareness of an animated essence in all
+          things, shape their interactions with each other and their
+          environment.
         </p>
       </CaptionedPhoto>
 

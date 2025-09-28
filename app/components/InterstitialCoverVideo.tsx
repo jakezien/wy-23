@@ -3,8 +3,7 @@ import React, { useLayoutEffect, useRef } from "react";
 import Image, { StaticImageData } from "next/image";
 import Parallax from "./Parallax";
 import ParallaxProvider from "./ParallaxProvider";
-import { ParallaxProps } from "react-scroll-parallax/dist/components/Parallax/types";
-// import { ParallaxProps } from "../types/ParallaxProps";
+import { ParallaxProps } from "react-scroll-parallax";
 import FullscreenVideo from "./FullscreenVideo";
 import ColorChangingText from "./colorChangingText";
 import resolveConfig from "tailwindcss/resolveConfig";
@@ -31,7 +30,6 @@ type Props = {
 };
 
 const InterstitialCoverVideo: React.FC<Props> = ({ ...props }) => {
-  
   let size = useWindowSize();
   const tl = useRef(gsap.timeline());
   const containerRef = useRef(null);
@@ -43,7 +41,8 @@ const InterstitialCoverVideo: React.FC<Props> = ({ ...props }) => {
       // let b = q('[data-animation-id="video-bg"]')
       // console.log("poooooops", b)
 
-      tl.current = gsap.timeline({
+      tl.current = gsap
+        .timeline({
           paused: true,
           scrollTrigger: {
             trigger: containerRef.current,

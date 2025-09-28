@@ -1,5 +1,6 @@
 "use client";
 import { useEffect } from "react";
+import Image from "next/image";
 import PageTitle from "./pageTitle";
 
 interface DonateModalProps {
@@ -76,11 +77,11 @@ export default function DonateModal({ isOpen, onClose }: DonateModalProps) {
                 name="hosted_button_id"
                 value="XW85PVVH2P3CA"
               />
-              <img
+              <Image
                 alt=""
                 src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif"
-                width="1"
-                height="1"
+                width={1}
+                height={1}
               />
             </form>
 
@@ -112,14 +113,14 @@ export default function DonateModal({ isOpen, onClose }: DonateModalProps) {
                 <div>
                   <p className="text-lg leading-relaxed mb-6">
                     Your donation will support our students, projects, programs,
-                    and the Q'eros community.
+                    and the Q&apos;eros community.
                   </p>
                 </div>
 
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <p className="text-lg italic mb-2">
-                    "Less than .01% of the world's development funding goes
-                    directly to indigenous communities."
+                    &ldquo;Less than .01% of the world&apos;s development
+                    funding goes directly to indigenous communities.&rdquo;
                   </p>
                   <p className="text-sm text-gray-600 mb-4">
                     — First Peoples Worldwide
