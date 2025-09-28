@@ -1,6 +1,7 @@
 import CoverPhoto from "../components/coverPhoto";
 import CaptionedPhoto from "../components/captionedPhoto";
 import CtaButton from "../components/ctaButton";
+import ParallaxProvider from "../components/ParallaxProvider";
 
 import coverImage from "./images/cover@2x.jpg";
 import soniaImage from "./images/sonia@2x.jpg";
@@ -26,7 +27,7 @@ export default function Qeros() {
   const hParallaxProps: ParallaxProps = {};
 
   return (
-    <>
+    <ParallaxProvider>
       <CoverPhoto imgSrc={coverImage} fixed>
         <PageTitle title="Q’eros"></PageTitle>
         <p
@@ -156,6 +157,6 @@ export default function Qeros() {
         caption="See how we help"
         className="mt-20 mb-20 md:-mt-40 md:mb-60"
       />
-    </>
+    </ParallaxProvider>
   );
 }
